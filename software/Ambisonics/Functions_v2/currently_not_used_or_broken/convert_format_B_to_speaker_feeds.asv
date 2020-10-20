@@ -1,0 +1,65 @@
+function [SpeakerArray, ambixChannels_Structure, Decoder] = ... 
+    convert_B_Format_to_speaker_feeds(B_format_file, encodingConvention, ...
+    binaural)
+%convert_for_to_speaker_feeds takes B-Format audio file of encoding 
+%convention FuMa or AmbiX and outputs speaker feeds
+%
+%binaural is boolean that returns binaural .wav file of decoded B-Format
+
+%% initialise 
+number_of_speakers = 8;  %would these values be better set in an initialize script where defaults could be set?  
+speaker_array_radius = 5/3;
+speaker_array_name = 'Octagon_2m_radius_start_angle_0_degrees';
+speaker_ids = [];
+start_angle_degrees = 0;
+do_plots = true;  % take default
+
+mixed_order_scheme = 'HP';
+order = 1;
+
+crossover_frequency = 380; %hz
+
+%% create speaker array
+SpeakerArray  = create_2D_polygon_speaker_array( ...
+    number_of_speakers, speaker_array_radius, speaker_array_name, ...
+    speaker_ids, start_angle_degrees );
+
+%% set up ambix channels structure
+ambixChannels_Structure  = create_ambix_channels_structure(order, ...
+    0, mixed_order_scheme);
+
+%% read ambisonics B-Format file
+[B_Format_Channels_Struc, sampling_frequency] = read_B_format_file( ...
+    B_format_file, encodingConvention, ambixChannels_Structure);
+
+%% create filters
+Filters = create_filter_structure(crossover_frequency, sampling_frequency, ...
+speaker_array_radius);
+
+%% create decoder
+[Decoder, SpeakerArray, ...
+ambixChannels_Structure] = create_decoder_using_pseudoinverse(SpeakerArray, ...
+    ambixChannels_Structure, do_plots);
+
+%% apply filters
+
+% apply near-field compensation
+B_Format_Channels_Struc = apply_nfc_filter(B_Format_Channels_Struc, Filters);
+
+% apply crossover network filters
+B_Format_Channels_Struc = implement_crossover_network(B_Format_Channels_Struc, ...
+    Filters);
+
+%% calculate speaker feeds
+
+SpeakerArray = calculate_speaker_feeds(SpeakerArray, B_Format_Channels_Struc, ...
+    Decoder, sampling_frequency);
+
+%% perform binaural conversion
+if binaural
+    speaker_feeds_to_binaural(SpeakerArray, B_format_file);
+end
+
+   
+
+

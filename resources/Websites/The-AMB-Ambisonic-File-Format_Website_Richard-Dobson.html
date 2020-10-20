@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<!-- saved from url=(0036)http://www.rwdobson.com/bformat.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   
+   <meta name="Author" content="rdbr03035">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; I) [Netscape]">
+   <title>AMB File Format</title>
+<style type="text/css">
+.tablefont {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.tablefont {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.primaryfont {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.codefont {
+	font-family: Courier New, Courier, monospace;
+}
+.codefont {
+	font-family: Courier New, Courier, monospace;
+}
+.rwdreturn {
+	font-family: Times New Roman, Times, serif;
+}
+</style>
+</head>
+<body>
+<p align="center" class="primaryfont"><b><font size="+2">The AMB Ambisonic File Format</font></b></p>
+<p align="center" class="primaryfont"><a href="http://rwdobson.com/">Richard Dobson</a></p>
+<h3 class="primaryfont">History and Motivation</h3>
+<p class="primaryfont">This file format was developed during 1999 as a simple example of  customisation of the then new WAVEFORMATEXTENSIBLE (WAVE_EX) file format. It was described briefly in an appendix to my paper <a href="http://www.rwdobson.com/Dobson-FileFormats-ICMC2000.pdf"><em>Developments in Audio file Formats</em></a> presented at ICMC 2000. Prior to this, I had published the <a href="http://www.rwdobson.com/cardattrit.html">Soundcard Attrition Page</a>, identifying soundcards which variously supported true multi-channel streams, or were confined to multiple stereo devices. </p>
+<p class="primaryfont">While WAVE_EX had made a modest appearance in immediately prior versions of Windows, it was with Windows 2000 that it became fully integrated into the OS, including the introduction of a new audio device driver model. This dramatically advanced the scope for playing ("rendering") multi-channel files. This was of incalculable importance to electro-acoustic composers, many of whom had already been working with Ambisonics (as well as with generic multi-speaker diffusion) for decades. Equally important was the possibility for users to define arbitrary customisations of WAVE_EX (in effect, to create entirely custom application-specific file formats) without any need to register them with Microsoft.</p>
+<p class="primaryfont">The challenge posed by Ambisonic B-Format is simple: it is a multi-channel time-domain format which can seemingly be represented by any available file format, such as WAVE and AIFF, yet stands apart from them by being (possibly uniquely) a <em>matrix-encoded</em> format which, in most cases, musicians do not merely wish to play back as is but to decode directly to a chosen speaker layout. There was no choice but to create B-Format files using one of the existing standard WAVE or AIFF formats. These were therefore intrinsically ambiguous – only the author could know which were B-format files and which were plain multi-channel files. Ad hoc strategies to resolve this included the use of structured file names, and/or  custom but unofficial file name extensions (e.g. <span class="codefont">.wxyz</span>). </p>
+<p class="primaryfont">The "composer's dilemma" can be summed up thus:</p>
+<ul>
+  <li class="primaryfont">a B-Format file may be unwittingly rendered without decoding</li>
+  <li class="primaryfont">a generic multi-channel file may be unwittingly decoded</li>
+</ul>
+<p class="primaryfont">The AMB format fully resolves this dilemma by meeting the  necessary criterion for an unambiguous file format - that <em>only software that recognises the format (and can therefore decode it automatically) can open the file</em>. For example, this criterion was supported from the outset by the soundfile play programs (<em>playsfx</em>, later <em>paplay</em>) in the <a href="http://www.rwdobson.com/mctools.html">CDP Multi-Channel Toolkit</a> first published around the same time.</p>
+<p class="primaryfont">The descriptions that follow are intended for use by application developers wishing to support the AMB format. It is not necessary for users to be fully conversant with these relatively low-level details.</p>
+<h3 class="primaryfont">Scope</h3>
+<p class="primaryfont">Being based on WAVE_EX, the AMB format is both a file format and a <em>stream rendering</em> format. The latter property is relevant primarily to Windows systems, where the format obtained from a file or audio input device can be passed directly to an output device or software plugin, if they support the format. The use of a custom GUID ensures that AMB files will not (and should not) be recognised as a soundfile by applications unaware of the format.</p>
+<p class="primaryfont">The AMB format supports up to 16  channels. This is sufficient to support Ambisonic streams up to and including full 3rd-Order periphonic (3D or "with-height"). For more information on Ambisonic B-Format, see e.g. <a href="http://en.wikipedia.org/wiki/Ambisonics" title="Ambisoncis" target="new">http://en.wikipedia.org/wiki/Ambisonics</a>. </p>
+<p class="primaryfont">The number of channels  in the file is sufficient to identify unambiguously which combination of horizontal and vertical B-Format signals is represented. By convention these are identified by a single letter, commencing with the four  comprising classic first-order: WXYZ,RSTUV,KLMNOPQ. In an AMB file, channels are always interleaved in this order - unused channels are simply omitted.</p>
+<div align="center">
+  <table width="644" height="304" border="1">
+    <caption class="tablefont">
+      B-Format Channel Assignments
+    </caption>
+    <tbody><tr>
+      <td width="151" height="25"><div align="center">
+        <span class="tablefont"><strong>Channels in File</strong></span>
+      </div></td>
+      <td width="218"><div align="center">
+        <span class="tablefont"><strong>Order  (Horizontal+Height)</strong></span>
+      </div></td>
+      <td width="141"><div align="center">
+        <pre><span class="tablefont"><strong>description</strong></span></pre>
+      </div></td>
+      <td width="133"><div align="center">
+        <pre><span class="tablefont"><strong>B-Format signals</strong></span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="22"><div align="center">
+        <pre><span class="tablefont">1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">mono</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">W</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="23"><div align="center">
+        <pre><span class="tablefont">2</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">"Mid-Side"</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WY</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">3</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">first-order horizontal</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXY</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">4</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">1+1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">first-order 3D</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">5</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">2</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">2nd order horizontal</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXY,UV</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">6</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">2+1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">mixed</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ,UV</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">7</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3rd order horizontal</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXY,UV,PQ</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">8</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3+1</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">mixed</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ,UV,PQ</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">9</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">2+2</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">2nd-order 3D</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ,RSTUV</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">11</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3+2</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">mixed</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ,RSTUV,PQ</span></pre>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <pre><span class="tablefont">16</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3+3</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">3rd-order 3D</span></pre>
+      </div></td>
+      <td><div align="center">
+        <pre><span class="tablefont">WXYZ,RSTUV,KLMNOPQ</span></pre>
+      </div></td>
+    </tr>
+  </tbody></table>
+</div>
+<p><span class="primaryfont">The mono and stereo examples are included only for the sake of completion. There is no point in creating a mono AMB file, and "Mid-Side" is a form of stereo recording (cardioid, omni or other "central" microphone, plus figure-of-eight microphone) which is typically treated somewhat differently from a canonical B-format stream – it offers what may be called an "interesting comparison".</span> <span class="primaryfont">The AMB format does not support UHJ (stereo-compatible) encodings. A file format for this has been defined by Martin Leese, described <a href="http://www.ambisonia.com/Members/mleese/file-format-for-uhj">here</a>.</span></p>
+<p class="primaryfont">File formats for Higher Order Ambisonics supporting 4th-Order and beyond are under development by the surround sound community. These are intended in time to become the file format of choice for B-Format data, and will inevitably be much more elaborate. One recently published example is described <a href="http://soundofspace.com/static/make_ua_file">here</a>. </p>
+<h3 class="primaryfont">The File Format </h3>
+<p><span class="primaryfont">The format definition below should be read in conjunction with the <a href="http://msdn.microsoft.com/en-us/windows/hardware/gg463006.aspx">Microsoft
+  document</a> detailing WAVE_EX, familiarity with which is assumed.
+</span>
+</p><p><span class="primaryfont">The WAVE_EX format allows for new 'Subtype' Globally Unique IDentifers
+(<a href="http://www.rwdobson.com/bformat.html#GUID">GUID</a>s) to be defined by anyone for custom soundfile
+formats. It is appropriate to use this for B-format since it is reasonable
+to send such data directly to a soundcard - e.g to an external B-Format
+decoder, or to a software 'plugin' decoder. While not conventional speaker&nbsp; feeds, the B-format channels are nevertheless normal audio signals,
+and can reasonably be processed in a real-time audio streaming environment. </span>
+</p><p class="primaryfont">There are two B-Format GUIDs, for integer and 32 bit floating-point sample types. Note that they follow Microsoft's own practice with the multimedia GUIDs, where the two GUIDs are identical except for the first field, which reflects the format flag values for the corresponding standard WAVE format. 
+</p>
+<h4 class="primaryfont">Integer format</h4>
+<p class="codefont">SUBTYPE_AMBISONIC_B_FORMAT_PCM<br>&nbsp;{00000001-0721-11d3-8644-C8C1CA000000}
+</p>
+<h4 class="primaryfont">Floating-point format</h4>
+<p class="codefont"><span class="codefont">SUBTYPE_AMBISONIC_B_FORMAT_IEEE_FLOAT <br>{00000003-0721-11d3-8644-C8C1CA000000}
+</span>
+</p><p class="primaryfont"> This "type-3" GUID enables the file to distinguish between 32 bit integer and 32 bit float samples.
+</p><p class="primaryfont">The  B-format signals are interleaved for each sample frame in the  channel
+order given above.
+</p><p class="primaryfont">The file should be given the extension <span class="primaryfont"><strong>.amb</strong></span>. Applications should  recognise the file by inspecting its header data (containing the AMB GUIDs).
+</p><h4 class="primaryfont">Encoding</h4>
+<p> <span class="primaryfont">B-Format signals may be recorded directly using a microphone such as the <a href="http://en.wikipedia.org/wiki/Soundfield_microphone">SoundField</a> or the <a href="http://www.core-sound.com/TetraMic/1.php">Tetramic</a>.</span></p><p class="primaryfont">Alternatively, an aribtrary mono source can be located or panned via B-Format encoding in 2D or 3D (periphonic) space. 
+</p><p><span class="primaryfont">Encoding   follows the <em>Furse-Malham</em> (<em>FuMa</em>) scheme. This  reflects the original form of the B-Format specification, not least as associated with the Soundfield microphone.   Technical descriptions of  Ambisonic theory, explaining the many engineering and mathematical reasons that lead to the various rules for encoding each B-Format signal, are widely available on the net, and are beyond the scope of this page. The references below provide the primary formulae for encoding source data in the <em>FuMa</em> scheme required by the AMB format.</span></p><ul>
+  <li> <span class="primaryfont"><a href="http://www.muse.demon.co.uk/ref/speakers.html">Richard Furse's page</a> giving encoding and decoding equations for first and second order</span></li>
+  <li class="primaryfont"><a href="http://www.york.ac.uk/inst/mustech/3d_audio/secondor.html">Description</a> by Dave Malham of second and third order encoding</li>
+  <li class="primaryfont">Document on <a href="http://www.york.ac.uk/inst/mustech/3d_audio/higher_order_ambisonics.pdf">Higher Order Ambisonics</a> (HOA) by Dave Malham, including full set of <em>FuMa</em> encoding equations.</li>
+</ul>
+<p class="primaryfont">Note that these formulae reflect the classic Ambisonic convention (associated particularly with the Soundfield microphone) that the W ("omni") signal is scaled by -3dB; this scaling is  required by the AMB format. Encoding software will apply this automatically as part of the encoding process.
+</p><h3 class="primaryfont">Decoding</h3>
+<p class="primaryfont"> A decoder program must either
+  degrade gracefully, or reject formats it cannot handle.
+Many options are available for decoding B-Format streams, ranging from classic formulae to decode to simple regular speaker layouts, to more specialised schemes to support irregular and (moderately) arbitrary layouts. The above references give several examples. Decoding may also incorporate <a href="http://www.ambisonia.com/Members/ricardo/shelfs.zip/view">shelf filtering and distance compensation</a>, to optimise reproduction in small spaces.
+</p><h4 class="primaryfont">File creation</h4>
+<p><span class="primaryfont">For all B-format configurations, the WAVE_EX </span><span class="codefont">dwChannelMask</span><span class="primaryfont"> field should be set
+  to zero. </span>
+</p><p><span class="primaryfont">Though strictly speaking an optional chunk, it is recommended that the
+    <a href="http://musicweb.ucsd.edu/~tre/PEAKchunk.html">PEAK
+chunk</a> be included in all B-Format files. It should always precede the &lt;</span><span class="codefont">data</span><span class="primaryfont">&gt; chunk. Apart from its general utility,
+it has the special virtue for B-format in that applications can, for example for a first-order file or stream, determine
+from the peak value for the Z channel&nbsp; whether the file is indeed
+full periphonic B-format (i.e. with height information), or horizontal-only
+(Z channel present but empty).
+</span>
+</p><p><a name="GUID"></a><b class="primaryfont">Reading and writing a GUID.</b>
+</p><p class="primaryfont">The GUID (as defined by Microsoft) is expressed in C code as a structure:
+</p><p class="codefont">typedef struct _GUID
+<br>{
+<br>&nbsp;&nbsp;&nbsp; unsigned long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Data1;
+<br>&nbsp;&nbsp;&nbsp; unsigned short&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Data2;
+<br>&nbsp;&nbsp;&nbsp; unsigned short&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Data3;
+<br>&nbsp;&nbsp;&nbsp; unsigned char&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Data4[8];
+<br>} GUID;
+</p><p><span class="primaryfont">Thus, the </span><span class="codefont">SUBTYPE_AMBISONIC_B_FORMAT_PCM</span><span class="primaryfont"> GUID will be written as: </span><br>
+<span class="codefont">{0x00000001,0x0000,0x0010,&nbsp; {0x80,0x00, 0x00,0xaa,0x00,0x38, 0x9b,
+0x71}}</span>&nbsp;
+</p><p class="primaryfont">Note that  the  three numeric elements of this structure are written
+  to disk (as are all numeric values in WAVE files) in <a href="http://en.wikipedia.org/wiki/Endianness"><em>little-endian</em></a> format (least significant bytes at the lower addresses).
+  The remaining eight bytes are written in sequence as for any string.
+</p><h3 class="primaryfont">Software support for the AMB format</h3>
+<ul>
+  <li class="primaryfont">The free <a href="http://www.rwdobson.com/mctools.html">CDP Multi-Channel Toolkit </a>(Windows, OS X), and the full <a href="http://www.composersdesktop.com/">CDP system</a></li>
+  <li class="primaryfont"><a href="http://www.brucewiggins.co.uk/">Bruce Wiggins</a> has created a number of plugins, including DirectSound plugins, which enable files to be played using Windows Media Player.</li>
+  <li class="primaryfont"> Erik de Castro Lopo's <a href="http://www.mega-nerd.com/libsndfile/">libsndfile</a> library</li>
+</ul>
+<h3 class="primaryfont">File examples</h3>
+<p class="primaryfont">The surround sound file repository <a href="http://www.ambisonia.com/">ambisonia.com</a> includes a large number of files in AMB format, including some 2nd-order examples. They range widely from classical music recordings to ambient and other soundscapes and electro-acoustic compositions.</p>
+<p class="rwdreturn">Last updated: Oct 26 2012</p>
+
+
+</body></html>

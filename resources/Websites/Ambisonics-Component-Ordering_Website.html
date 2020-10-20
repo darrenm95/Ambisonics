@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://www.audiokinetic.com/library/edge/?source=Help&id=ambisonics_channel_ordering -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Ambisonics Component Ordering</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="author" content="Audiokinetic Inc.">
+<meta name="robots" content="index, follow">
+<meta name="language" content="en">
+<meta name="title" content="Ambisonics Component Ordering">
+<meta name="keywords" content="audiokinetic, wwise, audio, game, sound, engine, sound engine, hdr, integration, unity, unreal, epic, voice, sfx, xbox, xbox360, xbox one, ps3, ps4, playstation 3, playstation 4, wii, wii u, sony, microsoft, nintendo, platform, console, windows, pc, mac, rumble, motion, effect">
+<meta name="description" content="Audiokinetic Wwise Help - Ambisonics Component Ordering">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" sizes="192x192" href="https://www.audiokinetic.com/favicon.ico">
+<link rel="apple-touch-icon" sizes="192x192" href="https://www.audiokinetic.com/favicon.png">
+<link rel="alternate" hreflang="en_US" href="https://www.audiokinetic.com/library/edge?source=Help&amp;id=ambisonics_channel_ordering">
+<link rel="alternate" hreflang="fr_FR" href="https://www.audiokinetic.com/fr/library/edge?source=Help&amp;id=ambisonics_channel_ordering">
+<link rel="alternate" hreflang="ja_JP" href="https://www.audiokinetic.com/ja/library/edge?source=Help&amp;id=ambisonics_channel_ordering">
+<link rel="alternate" hreflang="zh_CN" href="https://www.audiokinetic.com/zh/library/edge?source=Help&amp;id=ambisonics_channel_ordering">
+<link rel="alternate" hreflang="ko_KR" href="https://www.audiokinetic.com/ko/library/edge?source=Help&amp;id=ambisonics_channel_ordering">
+
+<script src="./Ambisonics-Component-Ordering_Website_files/1940263.js.download" type="text/javascript" id="hs-analytics"></script><script type="text/javascript" async="" src="./Ambisonics-Component-Ordering_Website_files/dc.js.download"></script><script src="./Ambisonics-Component-Ordering_Website_files/jquery-3.1.0.min.js.download"></script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/bootstrap.min.js.download"></script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/bootbox.min.js.download"></script><link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/jquery-ui.min.css"><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/jquery-ui.min.js.download"></script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/jquery.color-2.1.2.min.js.download"></script><link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/jquery.qtip.min.css"><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/jquery.qtip.min.js.download"></script><script>var qtipDefaults = { content: { attr: "tip" }, position: { at: "right center", my: "left top" }, style: { classes: 'qtip-tipsy', tip: { width: 10, height: 6 } } }</script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/menu.min.js.download"></script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/jquery.scrollTo.min.js.download"></script><script type="text/javascript" src="./Ambisonics-Component-Ordering_Website_files/ak_toc.min.js.download"></script><script src="./Ambisonics-Component-Ordering_Website_files/awesomeSelect.js.download"></script><link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/bootstrap.min.css">
+<style type="text/css">
+.bootstrap .btn-primary{color:#fff;background-color:#009FDA;border-color:#0094C9}
+</style>
+<link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/main.min.css"><link href="./Ambisonics-Component-Ordering_Website_files/css" rel="stylesheet">
+<link href="./Ambisonics-Component-Ordering_Website_files/icon" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/mobile.min.css"><style>
+</style>
+<link rel="stylesheet" type="text/css" href="./Ambisonics-Component-Ordering_Website_files/library.css">
+<style>
+.main-content h1 {text-transform:none;} .warning-redirect {background:rgba(0,174,238,0.25); border:1px solid #009FDA; border-radius:5px; padding:10px 1em; margin-bottom:1.5em;}
+</style>
+<script>
+	function triggerSearch()
+	{
+		term = $("#banner_search").val();
+		version = "2019.2.5_7349";
+		
+		window.location.href = '/search/?term=' + term + '&version=' + version;
+	}
+
+	$(document).ready(function(){
+
+		$.ajaxSetup ({cache: false});
+
+		// activate tooltip
+		$(".aktip").qtip($.extend({}, qtipDefaults, {}));
+
+		$('#ddVersions').AwesomeSelect({
+			dropdownClass : 'search-filter-input search-filter-dropdown', 
+			choiceClass : 'search-filter-dropdown-choice', 
+			selectClass : 'search-filter-select select-down',
+			includeFirstOption : true
+		});
+		$('#ddVersions').change(function(){
+			if ( $(this).val() ) window.location = $(this).val();
+		});
+		$('#banner_submit').click(function() {
+			triggerSearch();
+		});
+		$('#banner_search').keyup(function(e) {
+			if (e.keyCode == 13) {
+				triggerSearch();
+			}
+		});
+
+		var toc = new AK_ToC({
+			nodes_url:"/library/edge/",
+			toc_id:"#div-toc",
+			toc_child_id:"#tocchild",
+			content_id:"#div-content",
+			item_button_class:".toclink",
+		});
+
+		//Put the default english title in th H1 when empty
+		var sourceTitle = $('.toc-header').html();
+		if(sourceTitle == '&nbsp;'){
+			$('.toc-header').text($('.toccurrentlink').text());
+		}
+
+				window.setTimeout(function() {
+			var container = $('#div-toc'),
+	    	scrollTo = $('#div-toc a[href$="ambisonics_channel_ordering"]');
+
+			container.scrollTop(
+			  scrollTo.offset().top - container.offset().top + container.scrollTop() - 90
+			);
+		}, 0);
+		
+		$('#div-filters-expand').click(function() {
+			if (!$('#div-filters').hasClass('expanded')) {
+				$(this).find('.expand-trigger').css('backgroundColor', '#009fda').find('i').css('color', 'white').html('&#xE313;');
+				$('#div-filters').addClass('expanded');
+			}
+			else {
+				$(this).find('.expand-trigger').css('backgroundColor', 'white').find('i').css('color', '#009fda').html('&#xE315;');
+				$('#div-filters').removeClass('expanded');
+			}
+		});
+	});
+
+</script>
+</head>
+<body class="bootstrap no-touch"><script>
+var menuElement;
+var delta = 150;
+$(document).ready(function() {
+	var lastScrollTop = 0;
+	var clientWidth = $(window).width();
+	if (clientWidth < 768) {
+		menuElement = $('.mobile-nav');
+	}
+	else {
+		menuElement = $('.menu-container');
+	}
+	var navbarHeight = menuElement.outerHeight();
+	var didScroll = false;
+
+	$(window).scroll(function(event) {
+		didScroll = true;
+		if ( !$('body').hasClass('modal-open') )
+			$("body").removeClass('hasScrolled');
+	});
+
+	setInterval(function() {
+		if (didScroll) {
+			hasScrolled();
+			didScroll = false;
+		}
+	}, 250);
+
+	function hasScrolled() {
+		var st = $(this).scrollTop();
+		if (Math.abs(lastScrollTop - st) <= delta)
+			return;
+		lastScrollTop = st;
+	}
+
+	$(window).resize(function() {
+		var padding = 0;
+		clientWidth = $(window).width();
+		if (clientWidth > 1500) {
+			padding = 50 + (clientWidth - 1500) / 4;
+		}
+		else if (clientWidth > 991) {
+			padding = 50;
+		}
+		else {
+			padding = 0;
+		}
+		$('.row.row-1500, .features-content, .features-header').css('paddingLeft', padding);
+		$('.row.row-1500, .features-content, .features-header').css('paddingRight', padding);
+
+		if (clientWidth < 768) {
+			menuElement = $('.mobile-nav');
+		}
+		else {
+			menuElement = $('.menu-container');
+		}
+		navbarHeight = menuElement.outerHeight();
+	}).resize();
+});
+</script>
+<div id="top_menu" class="bootstrap">
+	<div class="container-fluid">
+		<div class="row menu-container hidden-xs row-1500" style="padding-left: 50px; padding-right: 50px;">
+									<div class="col-md-12 top-nav">
+				<div class="row alt-nav">
+					<div class="col-md-12">
+						<div class="nav-item dropdown-trigger" style="padding-right:0em;">English<i class="material-icons"></i>
+							<div class="submenu other-options">
+								<a href="https://www.audiokinetic.com/en/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="en" xml:lang="en">English</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/fr/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="fr" xml:lang="fr">Français (French)</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/ja/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="ja" xml:lang="ja">日本語 (Japanese)</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/zh/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="zh" xml:lang="zh">中文 (Chinese)</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/ko/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="ko" xml:lang="ko">한국어 (Korean)</a>							</div>
+						</div>
+
+						<span class="nav-item search-input">
+							<form class="menu-search-form" action="https://www.audiokinetic.com/search/" method="get">
+								<p>
+									SEARCH									<input class="search-input-object" type="text" name="term" placeholder="SEARCH">
+									<i class="material-icons"></i>
+								</p>
+							</form>
+						</span>
+											</div>
+				</div>
+				<div class="row main-nav">
+					<div class="col-md-12 nav-left">
+						<a href="https://www.audiokinetic.com/"><img id="main-logo" src="./Ambisonics-Component-Ordering_Website_files/logo.png"></a>
+												<a href="https://www.audiokinetic.com/sign-in/" class="nav-item menu-category menu-login" style="float:right;"><i class="material-icons icon-login"></i>Log in</a>
+												<div class="nav-item menu-category dropdown-trigger  " style="">Products<div class="submenu main-categories"><a href="https://www.audiokinetic.com/products/wwise/">Wwise</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/products/plug-ins/">Plug-Ins</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/products/wwise-integration/">Integrations</a></div></div><div class="nav-item menu-category dropdown-trigger  " style="">Services<div class="submenu main-categories"><a href="https://www.audiokinetic.com/services/support/">Support</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/services/creative-services/">Creative Services</a></div></div><div class="nav-item menu-category dropdown-trigger  " style="">Discover<div class="submenu main-categories"><a href="https://www.audiokinetic.com/discover/wwise-in-vr/">Wwise in AR/VR/MR</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/discover/wwise-in-automotive/">Wwise in Automotive</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/discover/wwise-in-games/">Wwise in Games</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/discover/wwise-in-simulation/">Wwise in Simulation</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/discover/wwise-in-lbe/">Wwise in LBE</a></div></div><div class="nav-item menu-category dropdown-trigger  " style="">Learn<div class="submenu main-categories"><a href="https://www.audiokinetic.com/learn/certifications/">Learn Wwise</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/learn/teach-wwise/schools/">Teach Wwise</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/library/">Documentation</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/learn/videos/">Videos</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/resources/project-samples/">Samples</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/learn/knowledge-base/">Wwise Resources</a></div></div><div class="nav-item menu-category dropdown-trigger  " style="">Community<div class="submenu main-categories"><a href="https://blog.audiokinetic.com/">Blog</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/directory/">Creators Directory</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/qa/">Q&amp;A</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/community/events/">Events</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/community/powered-by-wwise/">Powered by Wwise</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/community/partners/">Partners</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/community/wwisetour/">Wwise Tour</a></div></div><div class="nav-item menu-category dropdown-trigger  menu-logo" style="float:right; margin-right:0.5em;"><span>Get</span><div class="wwise-logo wwise-logo-blue"></div><div class="submenu main-categories"><a class="flex-container" style"-webkit-align-items:center;="" align-items:center;"="" href="https://www.audiokinetic.com/download/"><div class="menu-logo"><span>Download</span><div class="wwise-logo wwise-logo-white"></div></div></a><div class="line-separator"></div><a href="https://www.audiokinetic.com/register-project/">Register My Project</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/pricing/">Pricing</a><div class="line-separator"></div><a href="https://www.audiokinetic.com/licensing/faq/">Licensing FAQ</a></div></div>					</div>
+				</div>
+			</div>
+		</div>
+				<div class="mobile-nav visible-xs-block">
+			<a href="https://www.audiokinetic.com/"><img id="main-logo-mobile" src="./Ambisonics-Component-Ordering_Website_files/logo.png"></a>
+			<i id="menu-hamburger" class="material-icons"></i>
+					</div>
+		<div class="mobile-submenu visible-xs-block">
+			<span class="close-submenu"><i class="material-icons">close</i></span>
+			<form class="menu-search-form" action="https://www.audiokinetic.com/search/" method="get">
+				<input class="search-input-object" type="text" name="term" placeholder="SEARCH">
+				<i class="material-icons"></i>
+			</form>
+			<span class="mobile-menu-item">Products<i class="material-icons"></i></span><div><a href="https://www.audiokinetic.com/products/wwise/">Wwise</a><a href="https://www.audiokinetic.com/products/plug-ins/">Plug-Ins</a><a href="https://www.audiokinetic.com/products/wwise-integration/">Integrations</a></div><span class="mobile-menu-item">Services<i class="material-icons"></i></span><div><a href="https://www.audiokinetic.com/services/support/">Support</a><a href="https://www.audiokinetic.com/services/creative-services/">Creative Services</a></div><span class="mobile-menu-item">Discover<i class="material-icons"></i></span><div><a href="https://www.audiokinetic.com/discover/wwise-in-vr/">Wwise in AR/VR/MR</a><a href="https://www.audiokinetic.com/discover/wwise-in-automotive/">Wwise in Automotive</a><a href="https://www.audiokinetic.com/discover/wwise-in-games/">Wwise in Games</a><a href="https://www.audiokinetic.com/discover/wwise-in-simulation/">Wwise in Simulation</a><a href="https://www.audiokinetic.com/discover/wwise-in-lbe/">Wwise in LBE</a></div><span class="mobile-menu-item">Learn<i class="material-icons"></i></span><div><a href="https://www.audiokinetic.com/learn/certifications/">Learn Wwise</a><a href="https://www.audiokinetic.com/learn/teach-wwise/schools/">Teach Wwise</a><a href="https://www.audiokinetic.com/library/">Documentation</a><a href="https://www.audiokinetic.com/learn/videos/">Videos</a><a href="https://www.audiokinetic.com/resources/project-samples/">Samples</a><a href="https://www.audiokinetic.com/learn/knowledge-base/">Wwise Resources</a></div><span class="mobile-menu-item">Community<i class="material-icons"></i></span><div><a href="https://blog.audiokinetic.com/">Blog</a><a href="https://www.audiokinetic.com/directory/">Creators Directory</a><a href="https://www.audiokinetic.com/qa/">Q&amp;A</a><a href="https://www.audiokinetic.com/community/events/">Events</a><a href="https://www.audiokinetic.com/community/powered-by-wwise/">Powered by Wwise</a><a href="https://www.audiokinetic.com/community/partners/">Partners</a><a href="https://www.audiokinetic.com/community/wwisetour/">Wwise Tour</a></div><span class="mobile-menu-item"><span>Get</span><div class="wwise-logo wwise-logo-blue"></div><i class="material-icons"></i></span><div><a class="flex-container" style"-webkit-align-items:center;="" align-items:center;"="" href="https://www.audiokinetic.com/download/"><div class="menu-logo"><span>Download</span><div class="wwise-logo wwise-logo-white"></div></div></a><a href="https://www.audiokinetic.com/register-project/">Register My Project</a><a href="https://www.audiokinetic.com/pricing/">Pricing</a><a href="https://www.audiokinetic.com/licensing/faq/">Licensing FAQ</a></div><span class="mobile-menu-item">English<i class="material-icons"></i></span><div><a href="https://www.audiokinetic.com/en/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="en" xml:lang="en">English</a><a href="https://www.audiokinetic.com/fr/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="fr" xml:lang="fr">Français (French)</a><a href="https://www.audiokinetic.com/ja/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="ja" xml:lang="ja">日本語 (Japanese)</a><a href="https://www.audiokinetic.com/zh/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="zh" xml:lang="zh">中文 (Chinese)</a><a href="https://www.audiokinetic.com/ko/library/edge/?source=Help&amp;id=ambisonics_channel_ordering" lang="ko" xml:lang="ko">한국어 (Korean)</a></div><a href="https://www.audiokinetic.com/sign-in/">Log in</a>					</div>
+		
+	</div>
+	</div>
+	<div class="container-fluid">
+			<div class="row top-banner top-banner-green  with-form ">
+		<div class="banner-title-wrap">
+			<div class="banner-title">
+					<h1 style="text-transform:capitalize;">Wwise Help</h1>
+	<h2>Ambisonics Component Ordering</h2>									<div class="banner-form">
+					<input id="banner_search" name="term" type="text" class="banner-form-input" placeholder="Search" value="">
+					<button id="banner_submit" type="submit" class="banner-form-submit banner-form-input">Search</button>
+				</div>
+							</div>
+		</div>
+			</div>
+			<div class="row main-content content-library">
+			<div class="library-flex-container" style="margin-top:20px;">
+				<div id="div-filters-expand">
+					<div class="expand-trigger flex-container" style="background-color: rgb(255, 255, 255);"><i class="material-icons" style="color: rgb(0, 159, 218);"></i></div>
+					<p>Table of Contents</p>
+				</div>
+				<div id="div-filters">
+
+					<div class="search-filters" style="margin-bottom:20px;"><select id="ddVersions" style="display: none;"><option value="../2019.2.5_7349/?source=Help&amp;id=ambisonics_channel_ordering" selected="">2019.2.5.7349</option>
+<option value="../2019.1.9_7221/?source=Help&amp;id=ambisonics_channel_ordering">2019.1.9.7221</option>
+<option value="../2018.1.11_6987/?source=Help&amp;id=ambisonics_channel_ordering">2018.1.11.6987</option>
+<option value="../2017.2.10_6745/?source=Help&amp;id=ambisonics_channel_ordering">2017.2.10.6745</option>
+<option value="../2017.1.9_6501/?source=Help&amp;id=ambisonics_channel_ordering">2017.1.9.6501</option>
+<option value="../2016.2.6_6153/?source=Help&amp;id=ambisonics_channel_ordering">2016.2.6.6153</option>
+<option value="../2016.1.6_5926/?source=Help&amp;id=ambisonics_channel_ordering">2016.1.6 build 5926</option>
+<option value="../2015.1.9_5624/">2015.1.9 build 5624</option>
+</select><div id="ddVersions_AwesomeSelect" class="search-filter-input search-filter-dropdown" tabindex="0"><span class="search-filter-dropdown-choice">2019.2.5.7349</span><div class="material-icons footer-subscribe-arrow"></div><div class="awesome-popup search-filter-select select-down"><p>2019.2.5.7349</p><div></div><p>2019.1.9.7221</p><div></div><p>2018.1.11.6987</p><div></div><p>2017.2.10.6745</p><div></div><p>2017.1.9.6501</p><div></div><p>2016.2.6.6153</p><div></div><p>2016.1.6 build 5926</p><div></div><p>2015.1.9 build 5624</p></div></div></div>
+					<div id="div-toc" style="height: auto;"><ul>			<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538430" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=SDK&amp;id=index.html" style="font-weight:bold;">Wwise SDK 2019.2.5</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538430"></i>				</div>
+				<ul class="tocchild" id="tocchild538430"></ul>
+			</li>
+							<li>
+						<div class="toclinkname">
+							<i class="material-icons toclink" data-ref="536874" data-open="1" data-queried="1"></i>							<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=wwise_help" style="font-weight:bold;">Wwise Help</a>
+							<i style="display:none;" class="material-icons tocbookmark" data-ref="536874"></i>						</div>
+						<ul class="tocchild" id="tocchild536874" style="display:block;">
+							<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=welcome_to_wwise">Welcome to Wwise 2019.2.5</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="536875"></i>				</div>
+				<ul class="tocchild" id="tocchild536875"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="536876" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=where_to_begin">Where to Begin?</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="536876"></i>				</div>
+				<ul class="tocchild" id="tocchild536876"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="536929" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=setting_up_projects">Setting Up Your Projects</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="536929"></i>				</div>
+				<ul class="tocchild" id="tocchild536929"></ul>
+			</li>
+							<li>
+						<div class="toclinkname">
+							<i class="material-icons toclink" data-ref="537057" data-open="1" data-queried="1"></i>							<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=using_sounds_and_motion_to_enhance_gameplay">Using Sounds and Motion to Enhance Gameplay</a>
+							<i style="display:none;" class="material-icons tocbookmark" data-ref="537057"></i>						</div>
+						<ul class="tocchild" id="tocchild537057" style="display:block;">
+							<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537058" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=defining_object_playback_behaviors">Defining Object Playback Behaviors</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537058"></i>				</div>
+				<ul class="tocchild" id="tocchild537058"></ul>
+			</li>
+							<li>
+						<div class="toclinkname">
+							<i class="material-icons toclink" data-ref="537100" data-open="1" data-queried="1"></i>							<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=defining_positioning">Defining Positioning</a>
+							<i style="display:none;" class="material-icons tocbookmark" data-ref="537100"></i>						</div>
+						<ul class="tocchild" id="tocchild537100" style="display:block;">
+							<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=defining_positioning_overview">Defining Positioning Overview</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537101"></i>				</div>
+				<ul class="tocchild" id="tocchild537101"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537102" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=understanding_positioning_in_wwise">Understanding Positioning in Wwise</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537102"></i>				</div>
+				<ul class="tocchild" id="tocchild537102"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=working_with_2d_sound_music_and_motion_fx_objects">Working with Speaker Panning</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537108"></i>				</div>
+				<ul class="tocchild" id="tocchild537108"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=working_with_3d_objects">Working with 3D Spatialized Objects</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537109"></i>				</div>
+				<ul class="tocchild" id="tocchild537109"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=crossfading_speaker_panning_and_3d_spatialization">Crossfading Speaker Panning and 3D Spatialization</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537110"></i>				</div>
+				<ul class="tocchild" id="tocchild537110"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=applying_positioning_to_busses">Applying Positioning to Busses</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537111"></i>				</div>
+				<ul class="tocchild" id="tocchild537111"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537112" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=_3d_positioning_illustrated">3D Positioning Illustrated</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537112"></i>				</div>
+				<ul class="tocchild" id="tocchild537112"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537118" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=applying_distance_based_attenuation">Applying Distance-Based Attenuation</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537118"></i>				</div>
+				<ul class="tocchild" id="tocchild537118"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537128" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=defining_spatial_positioning_using_animation_paths">Defining Spatial Positioning Using Animation Paths</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537128"></i>				</div>
+				<ul class="tocchild" id="tocchild537128"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=routing_audio_signals_to_center_speaker">Routing Audio Signals to the Center Speaker</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537142"></i>				</div>
+				<ul class="tocchild" id="tocchild537142"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=positioning_tips_and_best_practices">Positioning Tips and Best Practices</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537143"></i>				</div>
+				<ul class="tocchild" id="tocchild537143"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=understanding_channel_configurations">Understanding Channel Configurations</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537144"></i>				</div>
+				<ul class="tocchild" id="tocchild537144"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=speakers_vs_headphones_panning_rules">Speakers vs Headphones Panning Rules</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537145"></i>				</div>
+				<ul class="tocchild" id="tocchild537145"></ul>
+			</li>
+							<li>
+						<div class="toclinkname">
+							<i class="material-icons toclink" data-ref="537146" data-open="1" data-queried="1"></i>							<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=using_ambisonics">Using Ambisonics</a>
+							<i style="display:none;" class="material-icons tocbookmark" data-ref="537146"></i>						</div>
+						<ul class="tocchild" id="tocchild537146" style="display:block;">
+							<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=ambisonics_channel_ordering" class="toccurrentlink">Ambisonics Component Ordering</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537147"></i>				</div>
+				<ul class="tocchild" id="tocchild537147"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=using_ambisonics_in_plugins">Using Ambisonics in Plug-ins</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537148"></i>				</div>
+				<ul class="tocchild" id="tocchild537148"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=ambisonics_limitations">Ambisonics Compared to VBAP</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537149"></i>				</div>
+				<ul class="tocchild" id="tocchild537149"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=submixing_ambisonics">Submixing Ambisonics</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537150"></i>				</div>
+				<ul class="tocchild" id="tocchild537150"></ul>
+			</li>
+		</ul></li></ul></li>			<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537151" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=managing_priority">Managing Priority</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537151"></i>				</div>
+				<ul class="tocchild" id="tocchild537151"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537158" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=managing_effects">Managing Effects</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537158"></i>				</div>
+				<ul class="tocchild" id="tocchild537158"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537175" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=managing_motion">Managing Motion</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537175"></i>				</div>
+				<ul class="tocchild" id="tocchild537175"></ul>
+			</li>
+		</ul></li>			<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537189" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=interacting_with_game">Interacting with the Game</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537189"></i>				</div>
+				<ul class="tocchild" id="tocchild537189"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537285" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=creating_interactive_music">Creating Interactive Music</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537285"></i>				</div>
+				<ul class="tocchild" id="tocchild537285"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537371" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=finishing_project">Finishing Your Project</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537371"></i>				</div>
+				<ul class="tocchild" id="tocchild537371"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537548" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=working_with_wwise">Working with Wwise</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537548"></i>				</div>
+				<ul class="tocchild" id="tocchild537548"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="537691" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=wwise_reference">Wwise Reference</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="537691"></i>				</div>
+				<ul class="tocchild" id="tocchild537691"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538070" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=wwise_source_effect_plug_ins">Wwise Plug-ins</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538070"></i>				</div>
+				<ul class="tocchild" id="tocchild538070"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538154" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=wwise_tools">Wwise Tools</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538154"></i>				</div>
+				<ul class="tocchild" id="tocchild538154"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538176" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=appendix">Appendix</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538176"></i>				</div>
+				<ul class="tocchild" id="tocchild538176"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" style="opacity:0;visibility:hidden;"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=glossary">Glossary</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538196"></i>				</div>
+				<ul class="tocchild" id="tocchild538196"></ul>
+			</li>
+		</ul></li>			<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="536836" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=InstallGuide&amp;id=wwise_installation_migration" style="font-weight:bold;">Installation and Migration Guide</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="536836"></i>				</div>
+				<ul class="tocchild" id="tocchild536836"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538370" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=WwiseFundamentalApproach&amp;id=wwise_fundamentals" style="font-weight:bold;">Wwise Fundamentals</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538370"></i>				</div>
+				<ul class="tocchild" id="tocchild538370"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538348" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Cube&amp;id=idm1495287392" style="font-weight:bold;">Cube Integration</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538348"></i>				</div>
+				<ul class="tocchild" id="tocchild538348"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="542339" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=SampleProject&amp;id=idm1496884832" style="font-weight:bold;">Sample Project</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="542339"></i>				</div>
+				<ul class="tocchild" id="tocchild542339"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="536512" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Unity&amp;id=index.html" style="font-weight:bold;">Wwise Unity Integration</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="536512"></i>				</div>
+				<ul class="tocchild" id="tocchild536512"></ul>
+			</li>
+					<li>
+				<div class="toclinkname">
+					<i class="material-icons toclink" data-ref="538197" data-open="" data-queried="0"></i>					<a href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=UE4&amp;id=index.html" style="font-weight:bold;">Wwise Unreal Integration</a>
+					<i style="display:none;" class="material-icons tocbookmark" data-ref="538197"></i>				</div>
+				<ul class="tocchild" id="tocchild538197"></ul>
+			</li>
+		</ul></div>
+
+				</div>
+				<div id="div-results">
+										
+										<div id="div-content"><div class="sect2" title="Ambisonics Component Ordering">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="ambisonics_channel_ordering"></a>Ambisonics Component Ordering</h3></div></div></div>
+      
+      <p>The two primary component ordering formats for ambisonics are Furse-Malham, commonly called FuMa, and Ambisonics Channel Number, commonly called ACN. As seen in the following image, the former uses a lettered notation that - following alphabetical order per grouping - starts with the W (omni) channel, moves to its lower right, then its lower left, and then its lower center; then it moves to the next order and starts at the R, moves to its right, then to its left, then the further right, then the further left; then it moves to the next order and follows a similar pattern. On the other hand, the latter is numbered in a much easier to follow left-to-right order.</p>
+      <p>From the mono top block to the 1st, 2nd, and 3rd order bases, the image also illustrates that each ambisonic order can be viewed as a pyramid with respectively 4, 9, and 16 channels.</p>
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="525"><tbody><tr><td><img src="./Ambisonics-Component-Ordering_Website_files/saved_resource" width="525"></td></tr></tbody></table></div>
+      <div class="simplesect" title="Ambisonic Ordering Within Wwise">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="idm1432329840"></a>Ambisonic Ordering Within Wwise</h4></div></div></div>
+        
+      <p>The ambisonic file's ordering may be different within Wwise than its initial import or possible export. By default, Wwise expects imported ambisonic files of 1st order to 3rd order to use FuMa ordering, while higher order ambisonics are always interpreted as AmbiX, which uses ACN ordering.</p>
+	  <div class="tip" title="Tip" style="margin-left: 0.0in; margin-right: 0.0in;"><table border="0" summary="Tip">
+<tbody><tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="./Ambisonics-Component-Ordering_Website_files/saved_resource(1)"></td>
+<th align="left">Tip</th>
+</tr>
+<tr><td align="left" valign="top"><p>You can change how Wwise interprets a file's channels by using the <span class="bold"><strong>Channel Configuration Override</strong></span> in the Source Editor.</p></td></tr>
+</tbody></table></div>
+	  <p>Wwise converts FuMa ordering to the newer ACN ordering with SN3D normalization. However, it keeps FuMa lettering up to the third order. That is, in the preceding image, the FuMa ordering would be read from left to right, corresponding to W Y Z X V T R S U Q O M K L N P. Meters and the <a class="link" href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=getting_to_know_graph_view_overview" title="Overview">graph view</a> of the authoring tool's Source Editor use this hybrid display of ACN ordering.</p>
+      <p>This also means that development of custom plug-ins works with the Wwise-converted ACN ordering. Files recorded with the Wwise Recorder plug-in on an ambisonics-enabled bus can use FuMa ordering (thereby producing files that can be imported into Wwise) or ACN ordering. This is determined by the Ambisonic Channel Ordering option.</p>
+    </div>
+      <div class="itemizedlist" title="Related Topics">
+<p class="title"><b>Related Topics</b></p>
+<ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <p>
+            <a class="xref" href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=using_ambisonics_in_plugins" title="Using Ambisonics in Plug-ins">Using Ambisonics in Plug-ins</a>
+          </p>
+        </li>
+<li class="listitem">
+          <p>
+            <a class="xref" href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=submixing_ambisonics" title="Submixing Ambisonics">Submixing Ambisonics</a>
+          </p>
+        </li>
+<li class="listitem">
+          <p>
+            <a class="xref" href="https://www.audiokinetic.com/library/2019.2.5_7349/?source=Help&amp;id=ambisonics_limitations" title="Ambisonics Compared to VBAP">Ambisonics Compared to VBAP</a>
+          </p>
+        </li>
+</ul>
+</div>
+    </div></div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="bootstrap">
+	<div class="container-fluid">
+		<div class="row row-1500 footer-links" style="padding-left: 50px; padding-right: 50px;">
+			<div class="col-xs-12">
+				<div class="footer-links-links">
+					<span class="nav-item"><a href="https://www.audiokinetic.com/about/">About</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/about/news/">News</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/about/careers/">Careers</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/contacts/">Contact us</a></span>
+				</div>
+				<div class="footer-links-media">
+					<a href="https://www.facebook.com/AudiokineticWwise/" target="_blank"><span class="footer-social-media">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_facebook_blue.png" class="footer-image-blue">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_facebook_hover.png" class="footer-image-hover">
+						<span class="hidden-xs hidden-sm hidden-md">Facebook</span>
+					</span></a>
+					<a href="https://twitter.com/audiokinetic" target="_blank"><span class="footer-social-media">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_twitter_blue.png" class="footer-image-blue">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_twitter_hover.png" class="footer-image-hover">
+						<span class="hidden-xs hidden-sm hidden-md">Twitter</span>
+					</span></a>
+					<a href="https://www.linkedin.com/company/audiokinetic" target="_blank"><span class="footer-social-media">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_linkedin_blue.png" class="footer-image-blue">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_linkedin_hover.png" class="footer-image-hover">
+						<span class="hidden-xs hidden-sm hidden-md">Linkedin</span>
+					</span></a>
+					<a href="https://www.youtube.com/channel/UCuv_-Z-CrnYup-N_dVpdCYg" target="_blank"><span class="footer-social-media">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_youtube_blue.png" class="footer-image-blue">
+						<img src="./Ambisonics-Component-Ordering_Website_files/icon_youtube_hover.png" class="footer-image-hover">
+						<span class="hidden-xs hidden-sm hidden-md">Youtube</span>
+					</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="row row-1500 footer-legal" style="padding-left: 50px; padding-right: 50px;">
+			<div class="col-xs-12">
+				<div class="footer-legal-links">
+					<span class="nav-item"><a href="https://www.audiokinetic.com/terms-of-use/">Terms of Use</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/privacy/">Privacy Policy</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/user-account-policy/">User Account Policy</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/cookie-policy/">Cookie Policy</a></span>
+					<span class="nav-item"><a href="https://www.audiokinetic.com/trademarks/">Trademarks</a></span>
+				</div>
+				<span class="legal-notice">
+					Copyright © 2020 Audiokinetic Inc. All rights reserved.
+									</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-13070025-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><!-- Start of Async HubSpot Analytics Code --><script type="text/javascript">var _hsq = window._hsq = window._hsq || [];_hsq.push(["setContentType", "standard-page"]);!function(e,t){if(!document.getElementById(e)){var c=document.createElement("script");c.src="//js.hs-analytics.net/analytics/1587496800000/1940263.js",c.type="text/javascript",c.id=e;var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(c,n)}}("hs-analytics");</script><!-- End of Async HubSpot Analytics Code -->
+		
+
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<!-- saved from url=(0070)http://amtoolbox.sourceforge.net/amt-0.9.6/doc/hrtf/read_hrtf_code.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="keywords" content="READ_HRTF - Read HRTF from selected databases"> 
+<title>READ_HRTF - Read HRTF from selected databases</title>
+<link rel="stylesheet" href="./Read-HRTF_Code_files/amtoolbox.css" type="text/css">
+<link rel="stylesheet" href="./Read-HRTF_Code_files/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="./Read-HRTF_Code_files/bootstrap-responsive.min.css" type="text/css">
+<link rel="stylesheet" href="./Read-HRTF_Code_files/style.css" type="text/css">
+<script type="text/javascript" src="./Read-HRTF_Code_files/MathJax.js.download">
+</script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">.MathJax_Preview .MJXc-math {color: inherit!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXc-script {font-size: .8em}
+.MJXc-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXc-bold {font-weight: bold}
+.MJXc-italic {font-style: italic}
+.MJXc-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-largeop {font-size: 150%}
+.MJXc-largeop.MJXc-int {vertical-align: -.2em}
+.MJXc-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXc-display {display: block; text-align: center; margin: 1em 0}
+.MJXc-math span {display: inline-block}
+.MJXc-box {display: block!important; text-align: center}
+.MJXc-box:after {content: " "}
+.MJXc-rule {display: block!important; margin-top: .1em}
+.MJXc-char {display: block!important}
+.MJXc-mo {margin: 0 .15em}
+.MJXc-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXc-denom {display: inline-table!important; width: 100%}
+.MJXc-denom > * {display: table-row!important}
+.MJXc-surd {vertical-align: top}
+.MJXc-surd > * {display: block!important}
+.MJXc-script-box > *  {display: table!important; height: 50%}
+.MJXc-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXc-script-box > *:last-child > * {vertical-align: bottom}
+.MJXc-script-box > * > * > * {display: block!important}
+.MJXc-mphantom {visibility: hidden}
+.MJXc-munderover {display: inline-table!important}
+.MJXc-over {display: inline-block!important; text-align: center}
+.MJXc-over > * {display: block!important}
+.MJXc-munderover > * {display: table-row!important}
+.MJXc-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXc-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXc-mtr {display: table-row!important}
+.MJXc-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXc-mtr > .MJXc-mtd:first-child {padding-left: 0}
+.MJXc-mtr:first-child > .MJXc-mtd {padding-top: 0}
+.MJXc-mlabeledtr {display: table-row!important}
+.MJXc-mlabeledtr > .MJXc-mtd:first-child {padding-left: 0}
+.MJXc-mlabeledtr:first-child > .MJXc-mtd {padding-top: 0}
+.MJXc-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXc-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXc-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXc-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXc-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXc-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXc-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXc-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXc-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXc-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXc-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_CHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><div class="container"><div class="masthead"><h1 class="muted title">The Auditory Modeling Toolbox</h1><div class="navbar">  <div class="navbar-inner">    <div class="container">      <ul class="nav">        <li><a href="http://amtoolbox.sourceforge.net/">Home</a></li>        <li><a href="http://amtoolbox.sourceforge.net/download.php">Download</a></li>        <li><a href="http://amtoolbox.sourceforge.net/contact.php">Contact</a></li>        <li><a href="http://amtoolbox.sourceforge.net/models.php">Models</a></li>        <li class="active"><a href="http://amtoolbox.sourceforge.net/doc.php">Documentation</a></li>        <li><a href="http://amtoolbox.sourceforge.net/notes">Notes</a></li>        <li><a href="http://amtoolbox.sourceforge.net/links.php">Links</a></li>        <li><a href="http://amtoolbox.sourceforge.net/development.php">Development</a></li>      </ul>    </div>  </div></div></div>Applies to version: 0.9.6<br><div class="text-left"><p><a class="btn btn-info btn-block span2-doc" href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/hrtf/read_hrtf.php">View the help</a></p></div><div class="text-right"><div class="input-prepend"><span class="add-on"><b>Go to function</b></span><form class="span3" action="http://amtoolbox.sourceforge.net/amt-0.9.6/include/redirect.php" method="post"><select name="fun" onchange="this.form.submit()"><option value="humandata/absolutethreshold.php">absolutethreshold</option><option value="modelstages/adaptloop.php">adaptloop</option><option value="amtbasepath.php">amtbasepath</option><option value="amthelp.php">amthelp</option><option value="amtmex.php">amtmex</option><option value="amtredofile.php">amtredofile</option><option value="amtstart.php">amtstart</option><option value="modelstages/auditoryfilterbank.php">auditoryfilterbank</option><option value="general/audspecgram.php">audspecgram</option><option value="monaural/baumgartner2013.php">baumgartner2013</option><option value="monaural/baumgartner2014.php">baumgartner2014</option><option value="signals/bincorrnoise.php">bincorrnoise</option><option value="signals/bmsin.php">bmsin</option><option value="binaural/breebaart2001preproc.php">breebaart2001preproc</option><option value="signals/competingtalkers.php">competingtalkers</option><option value="filters/cqdft.php">cqdft</option><option value="modelstages/culling2005bmld.php">culling2005bmld</option><option value="humandata/data_baumgartner2013.php">data_baumgartner2013</option><option value="humandata/data_baumgartner2014.php">data_baumgartner2014</option><option value="humandata/data_best2005.php">data_best2005</option><option value="humandata/data_elberling2010.php">data_elberling2010</option><option value="humandata/data_glasberg1990.php">data_glasberg1990</option><option value="humandata/data_goode1994.php">data_goode1994</option><option value="humandata/data_goupell2010.php">data_goupell2010</option><option value="humandata/data_harte2009.php">data_harte2009</option><option value="humandata/data_langendijk2002.php">data_langendijk2002</option><option value="humandata/data_lindemann1986.php">data_lindemann1986</option><option value="humandata/data_lopezpoveda2001.php">data_lopezpoveda2001</option><option value="humandata/data_macpherson2003.php">data_macpherson2003</option><option value="humandata/data_majdak2010.php">data_majdak2010</option><option value="humandata/data_majdak2013.php">data_majdak2013</option><option value="humandata/data_majdak2013ctc.php">data_majdak2013ctc</option><option value="humandata/data_middlebrooks1999.php">data_middlebrooks1999</option><option value="humandata/data_neely1988.php">data_neely1988</option><option value="humandata/data_pralong1996.php">data_pralong1996</option><option value="humandata/data_roenne2012.php">data_roenne2012</option><option value="humandata/data_takanen2013.php">data_takanen2013</option><option value="humandata/data_wierstorf2013.php">data_wierstorf2013</option><option value="humandata/data_ziegelwanger2013.php">data_ziegelwanger2013</option><option value="humandata/data_ziegelwanger2014.php">data_ziegelwanger2014</option><option value="humandata/data_zwicker1961.php">data_zwicker1961</option><option value="monaural/dau1997preproc.php">dau1997preproc</option><option value="general/dbspl.php">dbspl</option><option value="demos/demo_absolutethreshold.php">demo_absolutethreshold</option><option value="demos/demo_adaptloop.php">demo_adaptloop</option><option value="demos/demo_baumgartner2013.php">demo_baumgartner2013</option><option value="demos/demo_drnl.php">demo_drnl</option><option value="demos/demo_hohmann2007.php">demo_hohmann2007</option><option value="demos/demo_lindemann1986.php">demo_lindemann1986</option><option value="demos/demo_takanen2013.php">demo_takanen2013</option><option value="demos/demo_verhulst2012.php">demo_verhulst2012</option><option value="demos/demo_zilany2013.php">demo_zilany2013</option><option value="binaural/dietz2011.php">dietz2011</option><option value="binaural/dietz2011interauralfunctions.php">dietz2011interauralfunctions</option><option value="modelstages/dietz2011unwrapitd.php">dietz2011unwrapitd</option><option value="modelstages/drnl.php">drnl</option><option value="modelstages/eicell.php">eicell</option><option value="binaural/enzner2008.php">enzner2008</option><option value="experiments/exp_baumgartner2013.php">exp_baumgartner2013</option><option value="experiments/exp_baumgartner2014.php">exp_baumgartner2014</option><option value="experiments/exp_dietz2011.php">exp_dietz2011</option><option value="experiments/exp_enzner2008.php">exp_enzner2008</option><option value="experiments/exp_jelfs2011.php">exp_jelfs2011</option><option value="experiments/exp_langendijk2002.php">exp_langendijk2002</option><option value="experiments/exp_lindemann1986.php">exp_lindemann1986</option><option value="experiments/exp_lopezpoveda2001.php">exp_lopezpoveda2001</option><option value="experiments/exp_roenne2012.php">exp_roenne2012</option><option value="experiments/exp_spille2013.php">exp_spille2013</option><option value="experiments/exp_takanen2013.php">exp_takanen2013</option><option value="experiments/exp_verhulst2012.php">exp_verhulst2012</option><option value="experiments/exp_ziegelwanger2013.php">exp_ziegelwanger2013</option><option value="experiments/exp_ziegelwanger2014.php">exp_ziegelwanger2014</option><option value="filters/filterbank_block.php">filterbank_block</option><option value="filters/filterbank_init.php">filterbank_init</option><option value="filters/filterbankz.php">filterbankz</option><option value="filters/gammatone.php">gammatone</option><option value="filters/gfb_analyzer_new.php">gfb_analyzer_new</option><option value="filters/gfb_analyzer_process.php">gfb_analyzer_process</option><option value="filters/gfb_delay_new.php">gfb_delay_new</option><option value="filters/gfb_delay_process.php">gfb_delay_process</option><option value="filters/gfb_filter_new.php">gfb_filter_new</option><option value="filters/gfb_filter_process.php">gfb_filter_process</option><option value="filters/gfb_mixer_new.php">gfb_mixer_new</option><option value="filters/gfb_synthesizer_new.php">gfb_synthesizer_new</option><option value="modelstages/headphonefilter.php">headphonefilter</option><option value="modelstages/ihcenvelope.php">ihcenvelope</option><option value="signals/ildsin.php">ildsin</option><option value="general/itd2angle.php">itd2angle</option><option value="general/itd2anglelookuptable.php">itd2anglelookuptable</option><option value="signals/itdildsin.php">itdildsin</option><option value="signals/itdsin.php">itdsin</option><option value="speech/jelfs2011.php">jelfs2011</option><option value="speech/joergensen2011combineinformation.php">joergensen2011combineinformation</option><option value="speech/joergensen2011snrenv.php">joergensen2011snrenv</option><option value="modelstages/karjalainen1996.php">karjalainen1996</option><option value="monaural/langendijk2002.php">langendijk2002</option><option value="modelstages/langendijk2002comp.php">langendijk2002comp</option><option value="monaural/langendijk2002likelihood.php">langendijk2002likelihood</option><option value="binaural/lindemann1986.php">lindemann1986</option><option value="modelstages/lindemann1986bincorr.php">lindemann1986bincorr</option><option value="binaural/lindemann1986centroid.php">lindemann1986centroid</option><option value="modelstages/middleearfilter.php">middleearfilter</option><option value="modelstages/modfilterbank.php">modfilterbank</option><option value="modelstages/modfilterbankepsm.php">modfilterbankepsm</option><option value="general/modspecgram.php">modspecgram</option><option value="signals/notchednoise.php">notchednoise</option><option value="monaural/plotbaumgartner2013.php">plotbaumgartner2013</option><option value="speech/plotjelfs2011.php">plotjelfs2011</option><option value="monaural/plotlangendijk2002.php">plotlangendijk2002</option><option value="monaural/plotlangendijk2002likelihood.php">plotlangendijk2002likelihood</option><option value="binaural/plotlindemann1986.php">plotlindemann1986</option><option value="monaural/plotroenne2012.php">plotroenne2012</option><option value="monaural/plotroenne2012chirp.php">plotroenne2012chirp</option><option value="monaural/plotroenne2012tonebursts.php">plotroenne2012tonebursts</option><option value="binaural/plotziegelwanger2014.php">plotziegelwanger2014</option><option value="modelstages/pmv2ppp.php">pmv2ppp</option><option value="hrtf/read_hrtf.php" selected="selected">read_hrtf</option><option value="monaural/roenne2012.php">roenne2012</option><option value="monaural/roenne2012chirp.php">roenne2012chirp</option><option value="monaural/roenne2012click.php">roenne2012click</option><option value="monaural/roenne2012tonebursts.php">roenne2012tonebursts</option><option value="general/setdbspl.php">setdbspl</option><option value="humandata/siiweightings.php">siiweightings</option><option value="general/stmodspecgram.php">stmodspecgram</option><option value="speech/taal2011.php">taal2011</option><option value="binaural/takanen2013.php">takanen2013</option><option value="modelstages/takanen2013contracomparison.php">takanen2013contracomparison</option><option value="modelstages/takanen2013cueconsistency.php">takanen2013cueconsistency</option><option value="modelstages/takanen2013directionmapping.php">takanen2013directionmapping</option><option value="modelstages/takanen2013formbinauralactivitymap.php">takanen2013formbinauralactivitymap</option><option value="modelstages/takanen2013lso.php">takanen2013lso</option><option value="modelstages/takanen2013mso.php">takanen2013mso</option><option value="modelstages/takanen2013onsetenhancement.php">takanen2013onsetenhancement</option><option value="modelstages/takanen2013periphery.php">takanen2013periphery</option><option value="modelstages/takanen2013wbmso.php">takanen2013wbmso</option><option value="signals/transposedtone.php">transposedtone</option><option value="filters/ufilterbankz.php">ufilterbankz</option><option value="monaural/verhulst2012.php">verhulst2012</option><option value="monaural/viemeister1979.php">viemeister1979</option><option value="filters/weightedaveragefilter.php">weightedaveragefilter</option><option value="binaural/wierstorf2013.php">wierstorf2013</option><option value="binaural/wierstorf2013estimateazimuth.php">wierstorf2013estimateazimuth</option><option value="binaural/ziegelwanger2013.php">ziegelwanger2013</option><option value="binaural/ziegelwanger2013offaxis.php">ziegelwanger2013offaxis</option><option value="binaural/ziegelwanger2013onaxis.php">ziegelwanger2013onaxis</option><option value="binaural/ziegelwanger2014.php">ziegelwanger2014</option><option value="binaural/ziegelwanger2014offaxis.php">ziegelwanger2014offaxis</option><option value="binaural/ziegelwanger2014onaxis.php">ziegelwanger2014onaxis</option><option value="monaural/zilany2007humanized.php">zilany2007humanized</option></select></form></div></div><div class="row-fluid"><div class="span2 span2-doc"><ul class="nav nav-list doc-sidenav affix-top">  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/hrtf/read_hrtf_code.php"><b>Categories</b></a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/index.php"><i class="icon-chevron-right"></i>startup</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/demos/index.php"><i class="icon-chevron-right"></i>demos</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/experiments/index.php"><i class="icon-chevron-right"></i>experiments</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/monaural/index.php"><i class="icon-chevron-right"></i>monaural</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/binaural/index.php"><i class="icon-chevron-right"></i>binaural</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/modelstages/index.php"><i class="icon-chevron-right"></i>model stages</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/general/index.php"><i class="icon-chevron-right"></i>general</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/filters/index.php"><i class="icon-chevron-right"></i>filters</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/speech/index.php"><i class="icon-chevron-right"></i>speech</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/humandata/index.php"><i class="icon-chevron-right"></i>human data</a></li>  <li class="active"><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/hrtf/index.php"><i class="icon-chevron-right"></i>HRTF</a></li>  <li><a href="http://amtoolbox.sourceforge.net/amt-0.9.6/doc/signals/index.php"><i class="icon-chevron-right"></i>signals</a></li></ul><br></div><div class="span10 span10-doc">
+<h1 class="title">READ_HRTF - Read HRTF from selected databases</h1>
+<h2>Program code:</h2>
+<div class="highlight"><pre><span class="k">function</span><span class="w"> </span>[outsig,fs] <span class="p">=</span><span class="w"> </span><span class="nf">read_hrtf</span><span class="p">(</span>elev_r,azim_r,database<span class="p">);</span>
+<span class="c">%READ_HRTF  Read HRTF from selected databases</span>
+<span class="c">%   Usage:  hrtf = read_hrtf(elev,azim,database);</span>
+<span class="c">%  </span>
+<span class="c">%   Input parameters:</span>
+<span class="c">%     elev : (-90 -&gt; +90) elevation of source with respect to head in degrees</span>
+<span class="c">%            Both databases have a range of elevations, but more limited in </span>
+<span class="c">%            the Oldenburg case.</span>
+<span class="c">%     azim : (-360 -&gt; +360) azimuth of source with respect to head in degrees</span>
+<span class="c">%</span>
+<span class="c">%     database : Type of database (see below)</span>
+<span class="c">%</span>
+<span class="c">%   Output parameters:</span>
+<span class="c">%     hrtf : the requested HRTF </span>
+<span class="c">%</span>
+<span class="c">%   READ_HRTF(elev,azim,database) retrieves the HRTF closest to the</span>
+<span class="c">%   specified azimuth and elevation from the MIT Kemar (Gardner and Martin,</span>
+<span class="c">%   1995) or Oldenburg Siemens Acuris (Kayser et al., 2009) databases.</span>
+<span class="c">%</span>
+<span class="c">%   The value of the database parameter determines which dataset to</span>
+<span class="c">%   access:</span>
+<span class="c">%</span>
+<span class="c">%     'kemar'     MIT KEMAR database. </span>
+<span class="c">%</span>
+<span class="c">%     'siemens0'  Oldenburg HATS database. </span>
+<span class="c">%</span>
+<span class="c">%     'siemens1'  Front microphone from the Siemens Acuris microphones.</span>
+<span class="c">%</span>
+<span class="c">%     'siemens2'  As above, but the middle microphone.</span>
+<span class="c">%</span>
+<span class="c">%     'siemens3'  As above, but the read microphone.</span>
+<span class="c">%             </span>
+<span class="c">%     'cardioid'  For a simple cardioid directional microphone</span>
+<span class="c">%                 constructred from the Siemens Acruris mikes.</span>
+<span class="c">%</span>
+<span class="c">%   References:</span>
+<span class="c">%     W. Gardner and K. Martin. Hrtf measurements of a kemar. J. Acoust. Soc.</span>
+<span class="c">%     Am., 97:3907-3908, 1995.</span>
+<span class="c">%     </span>
+<span class="c">%     H. Kayser, S. Ewert, J. Anemueller, T. Rohdenburg, V. Hohmann, and</span>
+<span class="c">%     B. Kollmeier. Database of multichannel in-ear and behind-the-ear</span>
+<span class="c">%     head-related and binaural room impulse responses. EURASIP Journal on</span>
+<span class="c">%     Advances in Signal Processing, 2009:6, 2009.</span>
+<span class="c">%     </span>
+<span class="c">%</span>
+<span class="c">%   Url: http://amtoolbox.sourceforge.net/amt-0.9.6/doc/hrtf/read_hrtf.php</span>
+
+<span class="c">% Copyright (C) 2009-2014 Peter L. Søndergaard.</span>
+<span class="c">% This file is part of AMToolbox version 1.0.0</span>
+<span class="c">%</span>
+<span class="c">% This program is free software: you can redistribute it and/or modify</span>
+<span class="c">% it under the terms of the GNU General Public License as published by</span>
+<span class="c">% the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c">% (at your option) any later version.</span>
+<span class="c">%</span>
+<span class="c">% This program is distributed in the hope that it will be useful,</span>
+<span class="c">% but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c">% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c">% GNU General Public License for more details.</span>
+<span class="c">%</span>
+<span class="c">% You should have received a copy of the GNU General Public License</span>
+<span class="c">% along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="c">% TODO: HRTF data not available!</span>
+
+  <span class="c">% Base path of where to store the data</span>
+  <span class="n">s</span><span class="p">=[</span><span class="n">amtbasepath</span><span class="p">,</span><span class="s">'hrtf/hrir/'</span><span class="p">];</span>
+
+  <span class="c">% Make elev and azim into the same shape, repeating elements if</span>
+  <span class="c">% necessary  </span>
+  <span class="p">[</span><span class="n">elev_r</span><span class="p">,</span><span class="n">azim_r</span><span class="p">]=</span><span class="n">scalardistribute</span><span class="p">(</span><span class="n">azim_r</span><span class="p">,</span><span class="n">elev_r</span><span class="p">);</span>
+  
+  <span class="n">nexps</span><span class="p">=</span><span class="nb">numel</span><span class="p">(</span><span class="n">elev_r</span><span class="p">);</span>
+  
+  <span class="k">switch</span> <span class="p">(</span><span class="n">database</span><span class="p">)</span>
+   <span class="k">case</span> <span class="s">'hats'</span>        <span class="c">% HATS</span>
+    <span class="n">mik_nums</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">];</span>
+   <span class="k">case</span> <span class="s">'siemens1'</span>        <span class="c">% front mike</span>
+    <span class="n">mik_nums</span> <span class="p">=</span> <span class="p">[</span><span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
+   <span class="k">case</span> <span class="s">'siemens2'</span>        <span class="c">% middle mike</span>
+    <span class="n">mik_nums</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">6</span><span class="p">];</span>
+   <span class="k">case</span> <span class="s">'siemens3'</span>        <span class="c">% rear mike</span>
+    <span class="n">mik_nums</span> <span class="p">=</span> <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span><span class="p">];</span>
+   <span class="k">case</span> <span class="s">'kemar'</span>
+    <span class="n">outsig</span><span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span><span class="n">nexps</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">nexps</span>
+      <span class="n">azim</span><span class="p">=</span><span class="n">azim_r</span><span class="p">(</span><span class="n">ii</span><span class="p">);</span>
+      <span class="n">elev</span><span class="p">=</span><span class="n">elev_r</span><span class="p">(</span><span class="n">ii</span><span class="p">);</span>
+        
+      <span class="c">% fix out of range cases</span>
+      <span class="k">if</span> <span class="n">azim</span> <span class="o">&lt;</span> <span class="mi">0</span>
+        <span class="n">azim</span> <span class="p">=</span> <span class="mi">360</span> <span class="o">+</span> <span class="n">azim</span><span class="p">;</span>
+      <span class="k">elseif</span> <span class="n">azim</span> <span class="o">&gt;</span><span class="p">=</span> <span class="mi">360</span> 
+        <span class="n">azim</span> <span class="p">=</span> <span class="n">azim</span><span class="o">-</span><span class="mi">360</span><span class="p">;</span>
+      <span class="k">end</span>
+      
+      <span class="c">% prefix zeros for KEMAR databases</span>
+      <span class="k">if</span> <span class="n">azim</span> <span class="o">&lt;</span> <span class="mi">10</span>           
+        <span class="n">azim_str</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">'00%d'</span><span class="p">,</span><span class="n">azim</span><span class="p">);</span>
+      <span class="k">elseif</span> <span class="n">azim</span> <span class="o">&lt;</span> <span class="mi">100</span>
+        <span class="n">azim_str</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">'0%d'</span><span class="p">,</span><span class="n">azim</span><span class="p">);</span>  
+      <span class="k">else</span>
+        <span class="n">azim_str</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">'%d'</span><span class="p">,</span><span class="n">azim</span><span class="p">);</span>
+      <span class="k">end</span>  
+
+      
+      <span class="n">ipfile</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'%skemar/elev%d/L%de%sa.dat'</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">azim_str</span><span class="p">));</span>
+      <span class="k">if</span> <span class="n">ipfile</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nb">disp</span><span class="p">(</span><span class="s">'Error: HRTF Data unavailable!'</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> <span class="k">end</span>
+      <span class="n">outsig</span><span class="p">(:,</span><span class="n">ii</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">ipfile</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="s">'int16'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">'b'</span><span class="p">);</span>
+      <span class="n">fclose</span><span class="p">(</span><span class="n">ipfile</span><span class="p">);</span>
+
+      <span class="n">ipfile</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'%skemar/elev%d/R%de%sa.dat'</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">azim_str</span><span class="p">));</span>
+      <span class="k">if</span> <span class="n">ipfile</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nb">disp</span><span class="p">(</span><span class="s">'Error: HRTF Data unavailable!'</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> <span class="k">end</span>
+      <span class="n">outsig</span><span class="p">(:,</span><span class="n">ii</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">ipfile</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="s">'int16'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">'b'</span><span class="p">);</span>
+      <span class="n">fclose</span><span class="p">(</span><span class="n">ipfile</span><span class="p">);</span>
+    <span class="k">end</span><span class="p">;</span>
+  <span class="k">end</span>
+
+<span class="k">if</span> <span class="n">strncmp</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="s">'siemens'</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="o">||</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="s">'cardioid'</span><span class="p">)</span> <span class="o">||</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="s">'hats'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">azim</span> <span class="o">&gt;</span> <span class="mi">180</span>            <span class="c">% fix out of range cases</span>
+    <span class="n">azim</span> <span class="p">=</span> <span class="n">azim</span> <span class="o">-</span> <span class="mi">360</span><span class="p">;</span>
+  <span class="k">end</span>    
+  <span class="n">filename</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">'%ssiemens/anechoic_distcm_300_el_%d_az_%d'</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">azim</span><span class="p">);</span>
+  <span class="n">set</span> <span class="p">=</span> <span class="n">wavread</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+  <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="s">'cardioid'</span><span class="p">)</span>
+    <span class="n">op</span> <span class="p">=</span> <span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">set</span><span class="p">),</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">op</span> <span class="p">=</span> <span class="n">op</span> <span class="o">-</span> <span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">set</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="c">% select channels of wav file to get different mike </span>
+    <span class="n">op</span> <span class="p">=</span> <span class="n">set</span><span class="p">(:,</span><span class="n">mik_nums</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="n">mik_nums</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">strncmp</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="s">'siemens'</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">fs</span> <span class="p">=</span> <span class="mi">48000</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">fs</span> <span class="p">=</span> <span class="mi">44100</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="c">% Remove unnecessary dimension if only one dataset was requested</span>
+<span class="n">outsig</span><span class="p">=</span><span class="nb">squeeze</span><span class="p">(</span><span class="n">outsig</span><span class="p">);</span>
+</pre></div>
+
+</div></div><hr>
+
+<div class="footer" align="center">
+  <ul class="inline">
+    <li><a title="Austrian Academy of Sciences" href="http://www.oeaw.ac.at/"><img src="./Read-HRTF_Code_files/oaw.png"></a></li>
+    <li><a title="Acoustics Research Institute" href="http://www.kfs.oeaw.ac.at/"><img src="./Read-HRTF_Code_files/ari.png"></a></li>
+    <li><a title="Technical University of Denmark" href="http://www.dtu.dk/centre/hea/English.aspx"><img src="./Read-HRTF_Code_files/dtu.png"></a></li>
+    <li><a title="Technical University Berlin" href="http://www.aipa.tu-berlin.de/"><img src="./Read-HRTF_Code_files/tu-berlin.png"></a></li>
+    <li><a title="Cardiff University" href="http://psych.cf.ac.uk/research/perception_action/index.html"><img src="./Read-HRTF_Code_files/cardiff.png"></a></li>
+    <li><a title="Carl-von-Ossietzky University Oldenburg" href="http://medi.uni-oldenburg.de/"><img src="./Read-HRTF_Code_files/oldenburg.png"></a></li>
+    <li><a title="Technical University Eindhoven" href="http://www.tue.nl/en/employee/ep/e/d/ep-uid/19980379/"><img src="./Read-HRTF_Code_files/eindhoven.png"></a></li>
+    <li><a title="University of Patras" href="http://www.wcl.ece.upatras.gr/audiogroup/index_en.html"><img src="./Read-HRTF_Code_files/patras.png"></a></li>
+    <li><a title="Rensselaer Polytechnic Institute" href="http://symphony.arch.rpi.edu/acoustics/"><img src="./Read-HRTF_Code_files/rensselaer.png"></a></li>
+    <li><a title="Ludwig-Maximilians-Universität München" href="http://www.synergy-munich.de/index.html"><img src="./Read-HRTF_Code_files/lmu.png"></a></li>
+    <li><a title="Technical University Dresden" href="http://www.ias.et.tu-dresden.de/ias/index.php?id=546"><img src="./Read-HRTF_Code_files/dresden.png"></a></li>
+    <li><a title="University Rostock" href="http://www.int.uni-rostock.de/?L=0"><img src="./Read-HRTF_Code_files/rostock.png"></a></li>
+    <li><a title="Ruhr-Universität Bochum" href="http://www.ruhr-uni-bochum.de/ika/"><img src="./Read-HRTF_Code_files/bochum.png"></a></li>
+    <li><a title="Aalto University" href="http://www.acoustics.hut.fi/"><img src="./Read-HRTF_Code_files/aalto.png"></a></li>
+    <li><a title="Boston University" href="http://www.bu.edu/hrc/"><img src="./Read-HRTF_Code_files/boston.png"></a></li>
+  </ul>
+  <p class="muted text-right"><small>Build with <a href="http://twitter.github.io/bootstrap/">Bootstrap</a></small></p>
+</div>
+
+
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/amtoolbox/" : "http://sourceforge.net/apps/piwik/amtoolbox/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Read-HRTF_Code_files/piwik.js.download" type="text/javascript"></script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://sourceforge.net/apps/piwik/amtoolbox/piwik.php?idsite=1" style="border:0" alt=""/></p></noscript>
+<!-- End Piwik Tag -->
+</div></body></html>

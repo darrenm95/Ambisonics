@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV = "Refresh" Content = "8; URL =http://www.core-sound.com/default.php"> 
+<META name="robots" content="NOINDEX, FOLLOW">
+<link rel="STYLESHEET" type="text/css" href="/styles.css">
+<script language="JavaScript">
+<!-- 	
+setTimeout("top.location.href = 'http://www.core-sound.com/default.php'",7500); 
+//--> 
+</script>
+</head>
+<body topmargin=1>
+
+<table align=center>
+<tr>
+<td><img src="core-sound_logo_b_on_w_100w.gif" width="100" height="100"></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align=center>
+You must be looking for a page on Core Sound's old website.<br>Welcome to the new Core Sound website!
+<p>If you entered this site by a bookmark, please update your bookmark.</p>
+<p>You will be taken to the site opening page within the next 5 seconds.</p>
+<p>If not click <a href="/default.php">this Link</a><br>
+ <br>
+</p></td>
+</tr>
+</table>
+
+</body>
+</html>

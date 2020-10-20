@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://betterexplained.com/articles/the-quick-guide-to-guids/ -->
+<html class="" lang="en-US" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+
+	
+	<!--[if lte IE 8]>
+	<script type="text/javascript" src="https://betterexplained.com/wp-content/themes/Avada/assets/js/html5shiv.js"></script>
+	<![endif]-->
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Quick Guide to GUIDs – BetterExplained</title>
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/js"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/analytics.js.download"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/hotjar-325710.js.download"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/analytics.js.download"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/recaptcha__en.js.download"></script><script async="" src="./The-Quick-Guide-to-GUIDs_Website_files/gtm.js.download"></script><script data-cfasync="false" type="text/javascript">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+//]]>
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->		<script type="text/javascript">
+		var ajaxurl = 'https://betterexplained.com/wp-admin/admin-ajax.php';
+		</script>
+		<link rel="dns-prefetch" href="https://www.google.com/">
+<link rel="alternate" type="application/rss+xml" title="BetterExplained » Feed" href="https://betterexplained.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="BetterExplained » Comments Feed" href="https://betterexplained.com/comments/feed/">
+			<!-- For iPad Retina display -->
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://betterexplained.com/articles/the-quick-guide-to-guids/">
+		<link rel="alternate" type="application/rss+xml" title="BetterExplained » The Quick Guide to GUIDs Comments Feed" href="https://betterexplained.com/articles/the-quick-guide-to-guids/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="./The-Quick-Guide-to-GUIDs_Website_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="toc-screen-css" href="./The-Quick-Guide-to-GUIDs_Website_files/screen.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="avada-parent-stylesheet-css" href="./The-Quick-Guide-to-GUIDs_Website_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="avada-stylesheet-css" href="./The-Quick-Guide-to-GUIDs_Website_files/style(1).css" type="text/css" media="all">
+<!--[if lte IE 9]>
+<link rel='stylesheet' id='avada-shortcodes-css'  href='https://betterexplained.com/wp-content/themes/Avada/shortcodes.css' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="avada-dynamic-css-css" href="./The-Quick-Guide-to-GUIDs_Website_files/avada-55.css" type="text/css" media="all">
+<link rel="stylesheet" id="ubermenu-css" href="./The-Quick-Guide-to-GUIDs_Website_files/ubermenu.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./The-Quick-Guide-to-GUIDs_Website_files/jquery.js.download"></script>
+<link rel="https://api.w.org/" href="https://betterexplained.com/wp-json/">
+<style type="text/css">div#toc_container ul li {font-size: 90%;}</style><style id="ubermenu-custom-generated-css">
+/** UberMenu Custom Menu Styles (Customizer) **/
+/* main */
+.ubermenu.ubermenu-main { background:none; border:none; box-shadow:none; }
+.ubermenu.ubermenu-main .ubermenu-item-level-0 > .ubermenu-target { border:none; box-shadow:none; }
+.ubermenu.ubermenu-main.ubermenu-horizontal .ubermenu-submenu-drop.ubermenu-submenu-align-left_edge_bar, .ubermenu.ubermenu-main.ubermenu-horizontal .ubermenu-submenu-drop.ubermenu-submenu-align-full_width { left:0; }
+.ubermenu.ubermenu-main.ubermenu-horizontal .ubermenu-item-level-0.ubermenu-active > .ubermenu-submenu-drop, .ubermenu.ubermenu-main.ubermenu-horizontal:not(.ubermenu-transition-shift) .ubermenu-item-level-0 > .ubermenu-submenu-drop { margin-top:0; }
+.ubermenu-main.ubermenu-transition-fade .ubermenu-item .ubermenu-submenu-drop { margin-top:0; }
+.ubermenu-main .ubermenu-item-level-0 > .ubermenu-target { font-size:16px; color:#333333; }
+.ubermenu-main .ubermenu-nav .ubermenu-item.ubermenu-item-level-0 > .ubermenu-target { font-weight:normal; }
+.ubermenu.ubermenu-main .ubermenu-item-level-0:hover > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-active > .ubermenu-target { color:#dfbc60; }
+.ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-item > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-parent > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-ancestor > .ubermenu-target { color:#333333; }
+.ubermenu-main .ubermenu-submenu .ubermenu-item-header > .ubermenu-target, .ubermenu-main .ubermenu-tab > .ubermenu-target { font-size:14px; }
+.ubermenu-main .ubermenu-submenu .ubermenu-item-header > .ubermenu-target:hover { color:#dfbc60; }
+.ubermenu-main .ubermenu-nav .ubermenu-submenu .ubermenu-item-header > .ubermenu-target { font-weight:normal; }
+.ubermenu-main .ubermenu-item-normal > .ubermenu-target { color:#333333; font-size:14px; font-weight:normal; }
+.ubermenu.ubermenu-main .ubermenu-item-normal > .ubermenu-target:hover, .ubermenu.ubermenu-main .ubermenu-item-normal:hover > .ubermenu-target, .ubermenu.ubermenu-main .ubermenu-item-normal.ubermenu-active > .ubermenu-target { color:#dfbc60; }
+.ubermenu-main .ubermenu-item-normal > .ubermenu-target:hover > .ubermenu-target-text { text-decoration:underline; }
+.ubermenu-main .ubermenu-target > .ubermenu-target-description { font-size:14px; }
+.ubermenu-responsive-toggle-main, .ubermenu-main, .ubermenu-main .ubermenu-target, .ubermenu-main .ubermenu-nav .ubermenu-item-level-0 .ubermenu-target { font-family:IBM Plex Sans; }
+
+
+
+/** UberMenu Custom Tweaks (General Settings) **/
+.fusion-header-v4 .fusion-header {
+   padding-top: 0px;
+   padding-bottom: 0px;
+   border-bottom: 0px;
+}
+
+.fusion-secondary-main-menu {
+   background: #f1ead6 !important;
+} 
+/* Status: Loaded from Transient */
+
+</style>
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" type="text/javascript">//<![CDATA[
+	dataLayer.push([]);//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-82FL');//]]>
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel="canonical" href="https://betterexplained.com/articles/the-quick-guide-to-guids/">
+<!--[if IE 9]> <script>var _fusionParallaxIE9 = true;</script> <![endif]--><link rel="preload" href="https://betterexplained.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp" as="script"><link rel="preload" href="https://betterexplained.com/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2" as="style"><link rel="preload" href="https://betterexplained.com/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=1509" as="style"><link rel="preload" href="https://betterexplained.com/wp-content/themes/Avada/style.css?ver=5.4.2" as="style"><link rel="preload" href="https://betterexplained.com/wp-content/themes/Avada-Child-Theme/style.css?ver=1.0.0" as="style"><link rel="preload" href="https://betterexplained.com/wp-content/themes/Avada/shortcodes.css?ver=1.0.0" as="style"><link rel="preload" href="https://betterexplained.com/wp-content/plugins/ubermenu/pro/assets/css/ubermenu.min.css?ver=3.2.5" as="style">
+	
+	<!--[if lte IE 8]>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	var imgs, i, w;
+	var imgs = document.getElementsByTagName( 'img' );
+	for( i = 0; i < imgs.length; i++ ) {
+		w = imgs[i].getAttribute( 'width' );
+		imgs[i].removeAttribute( 'width' );
+		imgs[i].removeAttribute( 'height' );
+	}
+	});
+	</script>
+
+	<script src="https://betterexplained.com/wp-content/themes/Avada/assets/js/excanvas.js"></script>
+
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+
+	// Combine inline styles for body tag
+	jQuery('body').each( function() {
+		var combined_styles = '<style type="text/css">';
+
+		jQuery( this ).find( 'style' ).each( function() {
+			combined_styles += jQuery(this).html();
+			jQuery(this).remove();
+		});
+
+		combined_styles += '</style>';
+
+		jQuery( this ).prepend( combined_styles );
+	});
+	});
+	</script>
+
+	<![endif]-->
+
+	<script type="text/javascript">
+		var doc = document.documentElement;
+		doc.setAttribute('data-useragent', navigator.userAgent);
+	</script>
+
+	
+	<style>
+    @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,700');
+    @import url('https://betterexplained.com/fonts/charter/webfonts/stylesheet-unified.css');
+    i.fa { display: none; }
+</style><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/embed.js.download"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/embed.js.download"></script><script type="text/javascript" async="" src="./The-Quick-Guide-to-GUIDs_Website_files/js(1)"></script><link rel="prefetch"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.6525595c7a9874fa10bd041275e40f17.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.9061cdaed1273d430eb02357766a8560.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.61f31d37e7d8fce4eed8fbe3fcee29b6.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.6525595c7a9874fa10bd041275e40f17.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.9061cdaed1273d430eb02357766a8560.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.61f31d37e7d8fce4eed8fbe3fcee29b6.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"></head>
+<body class="post-template-default single single-post postid-55 single-format-standard fusion-body no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-totop no-mobile-totop mobile-logo-pos-left layout-wide-mode has-sidebar menu-text-align-left mobile-menu-design-modern fusion-image-hovers fusion-show-pagination-text"><div id="MathJax_Message" style="display: none;"></div>
+				<div id="wrapper" class="">
+		<div id="home" style="position:relative;top:1px;"></div>
+				
+		
+			<div class="fusion-header-wrapper">
+				<div class="fusion-header-v4 fusion-logo-left fusion-sticky-menu- fusion-sticky-logo- fusion-mobile-logo- fusion-mobile-menu-design-modern fusion-sticky-menu-only fusion-header-menu-align-left">
+					<div class="fusion-header-sticky-height"></div>
+<div class="fusion-sticky-header-wrapper"> <!-- start fusion sticky header wrapper -->
+	<div class="fusion-header">
+		<div class="fusion-row">
+			<div class="fusion-logo" data-margin-top="31px" data-margin-bottom="0px" data-margin-left="0px" data-margin-right="0px">
+				<a class="fusion-logo-link" href="https://betterexplained.com/">
+						<img src="./The-Quick-Guide-to-GUIDs_Website_files/bex.logo_.new_.png" width="798" height="162" alt="BetterExplained" class="fusion-logo-1x fusion-standard-logo">
+
+															<img src="./The-Quick-Guide-to-GUIDs_Website_files/bex.logo_.new_.png" width="798" height="162" alt="BetterExplained" style="max-height: 162px; height: auto;" class="fusion-standard-logo fusion-logo-2x">
+			
+			<!-- mobile logo -->
+			
+			<!-- sticky header logo -->
+					</a>
+		<div class="fusion-header-content-3-wrapper"><div class="fusion-secondary-menu-search"><form role="search" class="searchform" method="get" action="https://betterexplained.com/">
+	<div class="search-table">
+		<div class="search-field">
+			<input type="text" value="" name="s" class="s" placeholder="Search ...">
+		</div>
+		<div class="search-button">
+			<input type="submit" class="searchsubmit" value="">
+		</div>
+	</div>
+</form>
+</div></div></div>
+					<div class="fusion-mobile-menu-icons"><form role="search" class="searchform" method="get" action="https://betterexplained.com/"><input type="text" value="" name="s" class="s" placeholder="Search..." style="width: 100px; margin-left: 10px;"></form></div>
+		</div>
+	</div>
+	<div class="fusion-secondary-main-menu">
+		<div class="fusion-row">
+			
+<!-- UberMenu [Configuration:main] [Theme Loc:main_navigation] [Integration:auto] -->
+<a class="ubermenu-responsive-toggle ubermenu-responsive-toggle-main ubermenu-skin-none ubermenu-loc-main_navigation ubermenu-responsive-toggle-content-align-left ubermenu-responsive-toggle-align-full " data-ubermenu-target="ubermenu-main-67-main_navigation"><i class="fa fa-bars"></i>Menu</a><nav id="ubermenu-main-67-main_navigation" class="ubermenu ubermenu-nojs ubermenu-main ubermenu-menu-67 ubermenu-loc-main_navigation ubermenu-responsive ubermenu-responsive-default ubermenu-responsive-collapse ubermenu-horizontal ubermenu-transition-shift ubermenu-trigger-hover_intent ubermenu-skin-none  ubermenu-bar-align-full ubermenu-items-align-left ubermenu-bound ubermenu-disable-submenu-scroll ubermenu-sub-indicators ubermenu-retractors-responsive"><ul id="ubermenu-nav-main-67-main_navigation" class="ubermenu-nav"><li id="menu-item-11392" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-11392 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Home</span></a></li><li id="menu-item-6199" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-6199 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/archives/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">All Articles</span></a></li><li id="menu-item-11390" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-11390 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/cheatsheet/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Popular</span></a></li><li id="menu-item-11391" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-11391 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/guides/calculus/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Calculus Guide</span></a></li><li id="menu-item-6205" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-6205 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-align-right"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/contact/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Contact</span></a></li><li id="menu-item-6211" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-6211 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-align-right"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/newsletter/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Newsletter</span></a></li><li id="menu-item-6210" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-6210 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-align-right"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/about/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">About</span></a></li><li id="menu-item-6747" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-6747 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://betterexplained.com/feedback/" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Feedback</span></a></li></ul></nav>
+<!-- End UberMenu -->
+																<div class="fusion-secondary-menu-search"><form role="search" class="searchform" method="get" action="https://betterexplained.com/">
+	<div class="search-table">
+		<div class="search-field">
+			<input type="text" value="" name="s" class="s" placeholder="Search ...">
+		</div>
+		<div class="search-button">
+			<input type="submit" class="searchsubmit" value="">
+		</div>
+	</div>
+</form>
+</div>
+									</div>
+	</div>
+</div> <!-- end fusion sticky header wrapper -->
+				</div>
+				<div class="fusion-clearfix"></div>
+			</div>
+					
+		<div id="sliders-container">
+					</div>
+				
+					<style>
+.grid {
+    display: flex;
+}
+
+.cell {
+    flex: 1;
+}
+
+.auto {
+    flex: auto;
+}
+
+.cell-80 {
+    flex: 0 0 80%;
+}
+
+.row {
+    max-width: 500px;
+    margin: 0px auto;
+    xmax-width: 650px;
+}
+
+#top-banner {
+    background: rgb(241, 241, 241) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-bottom: 5px solid rgb(223, 188, 96);
+    font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+#top-banner .image {
+    text-align: right;
+    margin-right: 20px;
+    xtext-align: center;
+}
+
+#top-banner .description {
+    text-align: center;
+}
+
+.bsa-notice {
+    background: #dfbc60 !important;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 5px;
+    display: both;
+    margin-right: 5px;
+}
+
+.bsa {
+    display: none;
+}
+
+#top-banner .row.autohide {
+    display: none;
+}
+</style>
+
+<!--
+<div id="top-banner" class="">
+    <div class="row grid">
+        <div class="description cell-80"><span class="bsa-notice" style="
+    float: right;
+    font-size: 14px;
+">Affiliate Partner</span><div class="image auto">
+             <a href="https://www.rapid-learner-course.com/?ref=2">
+                <img src="//betterexplained.com/examples/other/rapidlearner.png" style="height: 50px;">
+            </a>
+        </div>
+
+Scott Young is reopening his popular course Rapid Learner. He’s giving away three free ebooks and a 4-part lesson series to help you learn better.<br>
+            <a href="https://www.scotthyoung.com/blog/rl-betterexplained/" class="button">Get ebooks and lesson series</a>
+        </div>
+    </div>
+</div>
+-->
+<!--
+<div id="top-banner" class="">
+    <div class="row grid">
+        <div class="description cell-80"><span class="bsa-notice" style="
+    float: right;
+    font-size: 14px;
+">Affiliate Partner</span><div class="image auto">
+             <a href="https://www.rapid-learner-course.com/?ref=2">
+                <img src="//betterexplained.com/examples/other/rapidlearner.png" alt="Calculus, Better Explained" style="height: 50px;">
+            </a>
+        </div>
+            Master the process for acing tough classes, accelerating your career and learning anything quickly. <br>
+            <a href="https://www.rapid-learner-course.com/?ref=2" class="button">Get The Rapid Learner Course - ends Friday</a>
+        </div>
+    </div>
+</div>
+-->
+
+<div id="top-banner">
+    <div class="row grid autohide" style="max-width: 650px; display: flex;">
+        <div class="" style="max-width: 550px;">
+            <h2 style="margin-top: 1rem;">Stay, Daughter: A Story by Yasmin Azad</h2>This heartfelt and humorous story describes life as it was for girls who were caught in the conflict between tradition and modernity. <br><a href="https://staydaughter.com/assets/Swimsuit-Stay-Daughter.pdf"><b>Read an excerpt</b></a><br>
+            <a href="https://amzn.to/3cOCCPT"><b>Order on Amazon</b></a>
+        </div><div class="image auto">
+            <a href="https://amzn.to/3cOCCPT">
+                <img src="./The-Quick-Guide-to-GUIDs_Website_files/Stay-Daughter-3d-350px.png" width="150" style="float: right; margin-right: 15px;">
+            </a>
+        </div>
+    </div>
+
+    <div class="row grid autohide" style="max-width: 650px;">
+        <div class="image auto">
+            <a href="https://betterexplained.com/ebook/math/">
+                <img src="./The-Quick-Guide-to-GUIDs_Website_files/bothbooks-boxshot-min-200w.png" width="150" style="float: left; margin-right: 15px;">
+            </a>
+        </div>
+        <div class="" style="max-width: 500px;">
+            <h2 style="margin-top: 1rem;">Better Explained Books and Video Courses</h2>Concrete math lessons without the jargon.<br>
+            <a href="https://betterexplained.com/ebook/math/"><b>Math, Better Explained</b></a><br>
+            <a href="https://betterexplained.com/calculus/"><b>Calculus, Better Explained</b></a>
+        </div>
+    </div>
+</div>
+
+<script>
+var items = document.querySelectorAll('#top-banner .row.autohide');
+var item = items[Math.floor(Math.random() * items.length)];
+item.style.display = "flex";
+</script>
+<div class="fusion-page-title-bar fusion-page-title-bar-breadcrumbs fusion-page-title-bar-left">
+	<div class="fusion-page-title-row">
+		<div class="fusion-page-title-wrapper">
+			<div class="fusion-page-title-captions">
+
+																			<h1>The Quick Guide to GUIDs</h1>
+
+									
+				
+			</div>
+
+												<div class="fusion-page-title-secondary"><div class="fusion-breadcrumbs"><span><a href="https://betterexplained.com/"><span>Home</span></a></span><span class="fusion-breadcrumb-sep">›</span><span><a href="https://betterexplained.com/articles/category/programming/"><span>Programming</span></a></span><span class="fusion-breadcrumb-sep">›</span><span class="breadcrumb-leaf">The Quick Guide to GUIDs</span></div></div>
+							
+		</div>
+	</div>
+</div>
+		
+		
+		
+						<div id="main" class="clearfix " style="">
+			<div class="fusion-row" style="">
+<div id="content" style="float: left;">
+
+	
+			<div id="post-55" class="post post-55 type-post status-publish format-standard hentry category-programming">
+									
+			
+										
+						<div class="post-content">
+				<p>Our world is numbered. Books have ISBNs and products have barcodes. Cars have <a href="https://en.wikipedia.org/wiki/Vehicle_identification_number">VINs</a>, even people have social security numbers.</p>
+
+<p>Numbers help us reference items unambiguously. “John Smith” may be many people, but Social Security Number 123-45-6789 refers to one person exactly.</p>
+
+<p>A GUID (globally unique identifier) is a bigger, badder version of this type of ID number. You may see the term UUID tossed about (universally unique identifier), a nitpicky word for those whose numbers are unique not only within the globe, but throughout the entire universe.</p>
+
+<p>Any way you title it, GUIDs or UUIDs are just big, gigantic ID numbers.</p>
+
+<h2>The Problem With Counting</h2>
+
+<p>“We don’t need no stinkin’ GUIDs,” you may be thinking between gulps of Top Ramen, “I’ll just use regular numbers and start counting up from 1.”</p>
+
+<p>Sure, it sounds easy. Just start with ISBN #1 and add one for each new book. But problems arise:</p>
+
+<ul>
+<li>Who does the counting? A central authority?</li>
+<li>Who handles simultaneous requests and eliminates duplicates?</li>
+<li>Can IDs be shared between products? Is Social Security Number 1 different from ISBN 1?</li>
+<li>Can people guess what the next ID will be? How many IDs have been issued?</li>
+</ul>
+
+<p>The problem with counting is that we want to <strong>create ID numbers without the management headache</strong>.</p>
+
+<h2>GUIDs to the Rescue</h2>
+
+<p>GUIDs are large, enormous numbers that are nearly guaranteed to be unique. They are usually 128 bits long and look like this <a href="https://betterexplained.com/articles/numbers-and-bases/">in hexadecimal</a>:</p>
+
+<p><code>30dd879c-ee2f-11db-8314-0800200c9a66</code></p>
+
+<p>The format is a well-defined sequence of 32 hex digits grouped into chunks of 8-4-4-4-12. This gives us <code>2^128</code> or about <a href="http://instacalc.com/51569">10^38 numbers</a>.</p>
+
+<iframe src="./The-Quick-Guide-to-GUIDs_Website_files/embed.html" width="600" height="250" frameborder="0"></iframe>
+
+<p>Here’s the thinking behind GUIDs:</p>
+
+<ul>
+<li><p>If you pick a huge random number (39 digits long), it’s <strong>really unlikely</strong> that someone will pick the same one.</p></li>
+<li><p>GUIDs are not tied to a product. A GUID can be used for people, cars, files, webpages, colors, anything. With regular registration numbers, you start counting at 1 and numbers can overlap. Social Security Number 123-45-6789 is different from ISBN 123456789 which is different from barcode 123456789. This isn’t an issue with GUIDs.</p></li>
+<li><p>It’s up to the person reading the GUID to figure out the context of the GUID. There are so many GUIDs that you can use them to number everything and not run out.</p></li>
+</ul>
+
+<p><strong>GUIDs give you a unique serial number that can be used on any item in the universe.</strong></p>
+
+<h2>The Great GUID Shortage</h2>
+
+<p>When learning about GUIDs, it feels like 39 measly digits aren’t enough. Won’t we run out if people get GUID-crazy, assigning them for everything from their pets to their favorite bubble gum flavor?</p>
+
+<p>Let’s see. Think about how big the Internet is: Google has billions of web pages in its index. Let’s call it a trillion (10^12) for kicks. Think about every wikipedia article, every news item on CNN, every product in Amazon, every blog post from any author. We can assign a GUID for each of these documents.</p>
+
+<p>Now let’s say everyone on Earth gets their own copy of the internet, to keep track of their stuff. Even crazier, let’s say each person gets their own copy of the internet every second. How long can we go on?</p>
+
+<p><a href="http://instacalc.com/51567">Over a billion years</a>.</p>
+
+<iframe src="./The-Quick-Guide-to-GUIDs_Website_files/embed(1).html" width="550" height="250" frameborder="0"></iframe>
+
+<p>Let me say that again. Each person gets a <strong>personal copy of the internet, every second, for a billion years</strong>.</p>
+
+<p>It’s a mind-boggling amount of items, and it’s hard to get our heads around it. Trust me, we won’t run out of GUIDs anytime soon. And if we do? We’ll start using GUIDs with more digits.</p>
+
+<h2>Using GUIDs</h2>
+
+<p>If you want to create GUIDs, try the</p>
+
+<ul>
+<li><a href="http://www.famkruithof.net/uuid/uuidgen">Online GUID Generator</a></li>
+<li>GUID libraries for <a href="http://us.php.net/uniqid">PHP</a>, <a href="http://search.cpan.org/~rjbs/Data-UUID-1.148/UUID.pm">Perl</a>, <a href="https://raa.ruby-lang.org/project/uuid/">Ruby</a>, <a href="https://docs.python.org/3/library/uuid.html">Python</a>, <a href="http://msdn2.microsoft.com/en-us/library/system.guid.aspx">.NET</a></li>
+<li><a href="http://tools.assembla.com/breakout/wiki/FreeSoftware">usesguid plugin</a> for Ruby on Rails: Use a GUID instead of an integer as a primary key in your database.</li>
+</ul>
+
+<p>There are several ways to create GUIDs (<a href="https://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a> describes the conventions), but you want to avoid that mess and use a library. The general types of GUIDs are:</p>
+
+<ul>
+<li><strong>Random:</strong> Just use the system’s random-number generator to create a 128-bit number.</li>
+<li><strong>Time-based:</strong> Create a GUID based on the current time.</li>
+<li><strong>Hardware-based:</strong> Make a GUID with certain portions based on hardware features, such as the MAC address of a network card. This isn’t great because the GUID isn’t “anonymous” and can be partially traced to the machine that created it.</li>
+<li><strong>Content-based (MD5 or SHA-1 hash of data):</strong> Create a GUID based on a hash of the file contents. Files with the same contents will get the same GUID. You can also seed the hash with a unique namespace (like your URL).</li>
+</ul>
+
+<p>You can mix-and-match techniques above. If you want duplicate files to have the same GUID, then use GUIDs based on the contents. If you want GUIDs to be unique, even if the contents are the same, then create them randomly or with a combination of file contents and a random number.</p>
+
+<h2>GUID Examples</h2>
+
+<p>Here’s a few things you can do with GUIDs:</p>
+
+<ul>
+<li>Unique primary key in databases. This lets database items created on separate machines be merged later without conflict, and without the need for a central server to manage IDs.</li>
+<li>Unique filename for uploaded files. If each version of the file gets its own GUID, you can set a <a href="https://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/">long cache expiration time</a>.</li>
+<li>Unique name for resources (del.icio.us URL for instacalc: <a href="http://del.icio.us/url/6c5ff0ed608e75724df94a52b05dd6a8">http://del.icio.us/url/6c5ff0ed608e75724df94a52b05dd6a8</a>)</li>
+<li>Allow vendors to create and register unique IDs without contacting a central authority (like <a href="https://en.wikipedia.org/wiki/Component_Object_Model">class IDs in COM</a>)</li>
+</ul>
+
+<h2>The Tradeoffs with GUIDs</h2>
+
+<p>Like most things in life, GUIDs have benefits and drawbacks. Weigh the features to see if they make sense:</p>
+
+<p>Pros:</p>
+
+<ul>
+<li><strong>No central authority:</strong> You avoid the need for management, but can’t keep track of what’s been assigned. A compromise is to generate GUIDs internally and then hand them out.</li>
+<li><strong>Easily combined:</strong> You can merge sets of GUIDs from different data sources with a microscopic chance of conflict.</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+<li><strong>Appear random:</strong> Users cannot easily guess the ID for an object they don’t know. This is good for security, difficult for debugging.</li>
+<li><strong>GUID overhead:</strong> GUIDs are an example of the time-space tradeoff. You save time in merging but have to use space to store the large (16-byte) GUID. It may not make sense to have a 16-byte GUID keeping track of a 4-byte item in your database.</li>
+</ul>
+
+<h2>GUIDs are not a GUARantee</h2>
+
+<p>There’s one giant caveat for GUIDs: collisions are still possible.</p>
+
+<p>First, the <a href="https://betterexplained.com/articles/understanding-the-birthday-paradox/">birthday paradox</a> shows us the chance of a collision as <a href="https://en.wikipedia.org/wiki/Uuid#Random_UUID_probability_of_duplicates">GUIDs are used</a>.  It’s very, very unlikely that GUIDs will collide, but as more are assigned, there are fewer left to choose from.</p>
+
+<p>Second, a malicious user could try hijacking GUIDs that he knows will be used (assuming the user can assign their own GUIDs), or resubmitting different content to a previous GUID (submitting file A under the hash of file B).</p>
+
+<p>If you are writing software, program defensively and detect cases where the GUID already exists. Give the user an error or even better, recover, create a new GUID on the server side and try again. GUIDs are great, but they aren’t a magic bullet.</p>
+
+<p>As always, we’re never done learning. Read more about GUIDs here:</p>
+
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc4122.txt" title="RFC 4122">A Universally Unique IDentifier (UUID) URN Namespace</a></li>
+<li>Coding Horror: <a href="http://www.codinghorror.com/blog/archives/000817.html">Primary Keys vs. GUIDs</a></li>
+<li>Wikipedia on <a href="https://en.wikipedia.org/wiki/Guid">GUIDs</a> and <a href="https://en.wikipedia.org/wiki/Uuid">UUIDs</a></li>
+</ul>
+<style>
+.email-octopus-form-row-hp{position:absolute;left:-5000px}
+
+.subscribe_button {
+    width: 100%;
+    color: #fff;
+    margin: 0px;
+    padding: 11px 0px;
+    font-size: 18px;
+    background: #e05d22;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    text-shadow: none;
+    height: 42px;
+}
+
+.email-form-small {
+    background: #f2f2f2;
+    max-width: 600px;
+    text-align: center;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+}
+</style>
+<div class="email-form-small email-box">
+    <div class="">
+        <h3 class="ck_form_title">Join Over 450k Monthly Readers</h3>
+        <div class="">
+            <p><img src="./The-Quick-Guide-to-GUIDs_Website_files/example1-207x202.png" width="100" style="width: 100px; float: left; margin-right: 10px;" alt="">
+            </p>
+            <p style="text-align: left;">Enjoy the article? There's plenty more to help you build a lasting, intuitive understanding of math. <span style="background-color: initial;">Join the newsletter for bonus content and the latest updates.</span></p>
+            <br>
+        </div>
+        <div class="email-octopus-form-wrapper">
+            <p class="email-octopus-success-message"></p>
+            <p class="email-octopus-error-message"></p>
+            <form method="post" action="https://emailoctopus.com/lists/9f2090f8-e0ee-11ea-a3d0-06b4694bee2a/members/embedded/1.3/add" class="email-octopus-form bound" data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6">
+                <div class="email-octopus-form-row">
+                    <input id="field_0" name="field_0" type="email" placeholder="Enter your email address">
+                </div>
+                <div class="email-octopus-form-row-hp" aria-hidden="true">
+                    <!-- Do not remove this field, otherwise you risk bot sign-ups -->
+                    <input type="text" name="hp9f2090f8-e0ee-11ea-a3d0-06b4694bee2a" tabindex="-1" autocomplete="nope">
+                </div>
+                <div class="email-octopus-form-row-subscribe">
+                    <input type="hidden" name="successRedirectUrl" value="https://betterexplained.com/newsletter-thank-you/">
+                    <button class="subscribe_button" type="submit">Join for Free Lessons</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./The-Quick-Guide-to-GUIDs_Website_files/formEmbed.js.download"></script>
+
+<!-- social share -->
+<div>
+    <style>
+    .share-buttons li {
+        padding: 10px;
+    }
+
+    ul.share-buttons a {
+        color: #fff;
+    }
+
+    ul.share-buttons {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    ul.share-buttons li {
+        display: inline-block;
+    }
+
+    ul.share-buttons .sr-only {
+        position: absolute;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+    }
+    </style>
+    <ul class="share-buttons">
+        <li style="
+    background: #3B5998;
+"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbetterexplained.com&amp;quote=" target="_blank" title="Share on Facebook" onclick="window.open(&#39;https://www.facebook.com/sharer/sharer.php?u=&#39; + encodeURIComponent(document.URL) + &#39;&amp;quote=&#39; + encodeURIComponent(document.URL)); return false;" style="
+    color: #fff;
+">Facebook</a></li>
+        <li style="
+    background: #1DA1F2;
+"><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fbetterexplained.com&amp;text=:%20http%3A%2F%2Fbetterexplained.com&amp;via=betterexplained" target="_blank" title="Tweet" onclick="window.open(&#39;https://twitter.com/intent/tweet?text=&#39; + encodeURIComponent(document.title.replace(&#39;BetterExplained&#39;, &#39;@BetterExplained&#39;)) + &#39;:%20&#39;  + encodeURIComponent(document.URL)); return false;">Twitter</a></li>
+        <li style="
+    background: #0077B5;
+"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fbetterexplained.com&amp;title=&amp;summary=&amp;source=http%3A%2F%2Fbetterexplained.com" target="_blank" title="Share on LinkedIn" onclick="window.open(&#39;http://www.linkedin.com/shareArticle?mini=true&amp;url=&#39; + encodeURIComponent(document.URL) + &#39;&amp;title=&#39; +  encodeURIComponent(document.title)); return false;">LinkedIn</a></li>
+        <li style="
+    background: #D14836;
+"><a href="mailto:?subject=&amp;body=:%20http%3A%2F%2Fbetterexplained.com" target="_blank" title="Send email" onclick="window.open(&#39;mailto:?subject=&#39; + encodeURIComponent(document.title) + &#39;&amp;body=&#39; +  encodeURIComponent(document.URL)); return false;">Email</a></li>
+        <li style="
+    background: #333;
+"><a href="https://betterexplained.com/articles/the-quick-guide-to-guids/print/" target="_blank" title="Print">Print</a></li>
+    </ul>
+</div><h2>Other Posts In This Series</h2><ol class="egs-posts">
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/numbers-and-bases/" title="Number Systems and Bases">Number Systems and Bases</a></li>
+<li class="egs-posts-item">The Quick Guide to GUIDs</li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/understanding-quakes-fast-inverse-square-root/" title="Understanding Quake&#39;s Fast Inverse Square Root">Understanding Quake's Fast Inverse Square Root</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/a-simple-introduction-to-computer-networking/" title="A Simple Introduction To Computer Networking">A Simple Introduction To Computer Networking</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/swap-two-variables-using-xor/" title="Swap two variables using XOR">Swap two variables using XOR</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/understanding-big-and-little-endian-byte-order/" title="Understanding Big and Little Endian Byte Order">Understanding Big and Little Endian Byte Order</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/unicode/" title="Unicode and You">Unicode and You</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/a-little-diddy-about-binary-file-formats/" title="A little diddy about binary file formats">A little diddy about binary file formats</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/sorting-algorithms/" title="Sorting Algorithms">Sorting Algorithms</a></li>
+</ol>
+							</div>
+
+							<div class="fusion-meta-info"><div class="fusion-meta-info-wrapper"><span class="fusion-comments"><a href="https://betterexplained.com/articles/the-quick-guide-to-guids/#comments"><span class="dsq-postid" data-dsqidentifier="55 http://betterexplained.com/articles/the-quick-guide-to-guids/">61 Comments</span></a></span></div></div>												
+														<div id="disqus_thread"><iframe id="dsq-app1234" name="dsq-app1234" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./The-Quick-Guide-to-GUIDs_Website_files/saved_resource.html" horizontalscrolling="no" verticalscrolling="no" style="height: 6589px !important;"></iframe></div>
+									</div>
+		</div>
+<div id="sidebar" class="sidebar fusion-widget-area fusion-content-widget-area" style="float: right;">
+			
+			
+			<div id="text-9" class="fusion-slidingbar-widget-column widget widget_text"><h4 class="widget-title">In This Series</h4>			<div class="textwidget"><ol class="egs-posts">
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/numbers-and-bases/" title="Number Systems and Bases">Number Systems and Bases</a></li>
+<li class="egs-posts-item">The Quick Guide to GUIDs</li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/understanding-quakes-fast-inverse-square-root/" title="Understanding Quake&#39;s Fast Inverse Square Root">Understanding Quake's Fast Inverse Square Root</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/a-simple-introduction-to-computer-networking/" title="A Simple Introduction To Computer Networking">A Simple Introduction To Computer Networking</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/swap-two-variables-using-xor/" title="Swap two variables using XOR">Swap two variables using XOR</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/understanding-big-and-little-endian-byte-order/" title="Understanding Big and Little Endian Byte Order">Understanding Big and Little Endian Byte Order</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/unicode/" title="Unicode and You">Unicode and You</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/a-little-diddy-about-binary-file-formats/" title="A little diddy about binary file formats">A little diddy about binary file formats</a></li>
+<li class="egs-posts-item"><a class="egs-posts-item-title" href="https://betterexplained.com/articles/sorting-algorithms/" title="Sorting Algorithms">Sorting Algorithms</a></li>
+</ol>
+</div>
+		<div style="clear:both;"></div></div><div id="text-8" class="fusion-slidingbar-widget-column widget widget_text"><h4 class="widget-title">About The Site</h4>			<div class="textwidget"><p>BetterExplained helps 450k monthly readers with friendly, insightful math lessons (<a href="https://betterexplained.com/about/">more</a>).</p>
+</div>
+		<div style="clear:both;"></div></div><div id="custom_html-2" class="widget_text fusion-slidingbar-widget-column widget widget_custom_html"><div class="textwidget custom-html-widget"><script async="" src="./The-Quick-Guide-to-GUIDs_Website_files/f.txt"></script>
+<!-- Bex vertical wide -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-0990604499205651" data-ad-slot="5159070024"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- Bex Sidebar 2 -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-0990604499205651" data-ad-slot="6332383024"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<style>
+ins.adsbygoogle { margin-bottom: 25px;}
+	
+div#custom_html-2 {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background: none;
+}
+</style></div><div style="clear:both;"></div></div>	</div>
+									</div>  <!-- fusion-row -->
+			</div>  <!-- #main -->
+			
+			
+			
+			
+										
+				<div class="fusion-footer">
+
+										
+																
+						<footer id="footer" class="fusion-footer-copyright-area">
+							<div class="fusion-row">
+								<div class="fusion-copyright-content">
+
+											<div class="fusion-copyright-notice">
+			<div>“If you can't explain it simply, you don't understand it well enough.” —Einstein (<a href="https://betterexplained.com/philosophy">more</a>) | <a href="https://betterexplained.com/privacy">Privacy</a> | <a href="https://betterexplained.com/about">CC-BY-NC-SA</a></div>
+		</div>
+					<div class="fusion-social-links-footer">
+				<div class="fusion-social-networks"><div class="fusion-social-networks-wrapper"><a class="fusion-social-network-icon fusion-tooltip fusion-twitter fusion-icon-twitter" style="color:#fafafa;" href="https://twitter.com/betterexplained" target="_blank" data-placement="top" data-title="Twitter" data-toggle="tooltip" title="Twitter"><span class="screen-reader-text">Twitter</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-youtube fusion-icon-youtube" style="color:#fafafa;" href="https://www.youtube.com/user/betterexplained" target="_blank" data-placement="top" data-title="Youtube" data-toggle="tooltip" title="Youtube"><span class="screen-reader-text">Youtube</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-reddit fusion-icon-reddit" style="color:#fafafa;" href="https://reddit.com/r/betterexplained" target="_blank" data-placement="top" data-title="Reddit" data-toggle="tooltip" title="Reddit"><span class="screen-reader-text">Reddit</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-rss fusion-icon-rss" style="color:#fafafa;" href="https://betterexplained.com/feed/" target="_blank" data-placement="top" data-title="Rss" data-toggle="tooltip" title="Rss"><span class="screen-reader-text">Rss</span></a></div></div>			</div>
+		
+								</div> <!-- fusion-fusion-copyright-content -->
+							</div> <!-- fusion-row -->
+						</footer> <!-- #footer -->
+									</div> <!-- fusion-footer -->
+					</div> <!-- wrapper -->
+
+				
+		<a class="fusion-one-page-text-link fusion-page-load-link"></a>
+
+		<!-- W3TC-include-js-head -->
+
+		
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-82FL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><link rel="stylesheet" id="remove-style-meta-css" href="./The-Quick-Guide-to-GUIDs_Website_files/OPDRstyle.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.16"},"disqusIdentifier":"55 http:\/\/betterexplained.com\/articles\/the-quick-guide-to-guids\/","disqusShortname":"betterexplained-discussions","disqusTitle":"The Quick Guide to GUIDs","disqusUrl":"https:\/\/betterexplained.com\/articles\/the-quick-guide-to-guids\/","postId":"55"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./The-Quick-Guide-to-GUIDs_Website_files/comment_embed.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"betterexplained-discussions"};
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.16"},"disqusIdentifier":"55 http:\/\/betterexplained.com\/articles\/the-quick-guide-to-guids\/","disqusShortname":"betterexplained-discussions","disqusTitle":"The Quick Guide to GUIDs","disqusUrl":"https:\/\/betterexplained.com\/articles\/the-quick-guide-to-guids\/","postId":"55"};
+var dclCustomVars = {"dcl_progress_text":"Loading..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./The-Quick-Guide-to-GUIDs_Website_files/embed.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./The-Quick-Guide-to-GUIDs_Website_files/front.min.js.download"></script>
+<script type="text/javascript" src="./The-Quick-Guide-to-GUIDs_Website_files/api.js.download"></script>
+<script type="text/javascript">
+( function( grecaptcha, sitekey ) {
+
+	var wpcf7recaptcha = {
+		execute: function() {
+			grecaptcha.execute(
+				sitekey,
+				{ action: 'homepage' }
+			).then( function( token ) {
+				var forms = document.getElementsByTagName( 'form' );
+
+				for ( var i = 0; i < forms.length; i++ ) {
+					var fields = forms[ i ].getElementsByTagName( 'input' );
+
+					for ( var j = 0; j < fields.length; j++ ) {
+						var field = fields[ j ];
+
+						if ( 'g-recaptcha-response' === field.getAttribute( 'name' ) ) {
+							field.setAttribute( 'value', token );
+							break;
+						}
+					}
+				}
+			} );
+		}
+	};
+
+	grecaptcha.ready( wpcf7recaptcha.execute );
+
+	document.addEventListener( 'wpcf7submit', wpcf7recaptcha.execute, false );
+
+} )( grecaptcha, '6LfqTKMUAAAAAC9WVm5vP6SSpT_go7IiDhFT8SCS' );
+</script>
+
+		<script>
+    document.querySelector('a.ubermenu-responsive-toggle').addEventListener('click', function(){ document.querySelector('.ubermenu').classList.toggle('ubermenu-responsive-collapse'); });
+</script>
+
+<style>
+  .colorized-wrap {
+    border: 1px solid #ccc;
+}
+
+img[src*=Colorized] {
+    filter: grayscale(30%);
+}
+
+img[src*=Colorized]:hover {
+    filter: grayscale(0%);
+}
+
+
+.colorized-helper {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    padding: 0px 10px;
+    color: #666;
+    text-align: right;
+    position: relative;
+    z-index: 99;
+    border-top: 1px solid #fafafa;
+    background: #999;
+}
+
+.colorized-helper a {
+    color: #fafafa;
+}
+
+.colorized-helper {
+    display: none;
+}
+
+.colorized-wrap {
+    position: relative;
+}
+
+.colorized-wrap:hover .colorized-helper {
+    display: initial;
+    position: absolute;
+    right: 0px;
+}
+
+  /* mathjax changes */
+.mjx-chtml {
+    font-size: 100% !important;
+}
+
+.mjx-chtml.MJXc-display {
+    font-size: 100% !important;
+}
+</style>
+
+<script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({
+   tex2jax:{
+        inlineMath:[['$$$','$$$'], ['$','$'], ['\\(', '\\)']],
+        processEscapes: true
+   },
+  "HTML-CSS": {
+        scale: 95,
+        linebreaks: { automatic: true, width: "container" }
+    },
+   messageStyle: "none"
+});
+</script>
+<script src="./The-Quick-Guide-to-GUIDs_Website_files/MathJax.js.download"></script>
+
+<script src="./The-Quick-Guide-to-GUIDs_Website_files/zepto.min.js.download"></script>
+
+<script>
+function init() {  
+    $ = Zepto;
+  
+     // latex conversion
+    // $('.tex-inline').each(function(){ $(this).text('$$$' + ($(this).attr('alt')) + '$$$'); });
+    
+    // $('img.tex').each(function(){$(this).replaceWith('$$' + $(this).attr('alt') + '$$') });
+    // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+    // unlink current item in a series
+    var $current = $("a.egs-posts-item-title[href='" + document.location.href + "']");
+    var title = $current.eq(0).contents();
+    $current.replaceWith(title);
+
+   // hide series widget if empty
+   var $series_widget = null;
+   $('h4.widget-title').each(function(){
+   		if ($(this).text().match(/series/i)) {
+           $series_widget = $(this).parents('.widget');
+        }
+   });
+  
+   if ($series_widget && $series_widget.find('li').length == 0) {
+      $series_widget.hide();
+   }
+  
+   setupColorization();
+  
+   // default search on mobile
+   $('.fusion-mobile-menu-icons').html('<form role="search" class="searchform" method="get" action="https://betterexplained.com/"><input type="text" value="" name="s" class="s" placeholder="Search..." style="width: 100px; margin-left: 10px;"></form>');
+   
+   // bsa
+   // $.get('https://betterexplained.com/examples/bsa.php?t=' + (new Date()).toISOString(), function(resp){ $('#sidebar').prepend(resp); });  
+}
+  
+function setupColorization() {
+  $('img[src*=Colorize]').each(function(i, el){
+   var orig = $(el).attr('src');
+   var colorblind_assist = orig.replace(".png", "-colorblind-assist.png");
+
+   var $toolbar = $('<div class="colorized-helper"><a href="' + orig + '">original</a> <a href="' + colorblind_assist + '">colorblind assist</a></div>');
+   var $wrapper = $('<div class="colorized-wrap"></div>');
+   $(el).wrap($wrapper);
+   $toolbar.insertAfter($(el));
+})
+
+  $(document).on('click', '.colorized-helper a', function(e){
+     e.preventDefault();
+     var newsrc = $(this).attr('href');
+     $(this).parents('.colorized-wrap').find('img').attr('src', newsrc);
+     return false;
+  }); 
+}
+  
+  (function() {
+  	var nTimer = setInterval(function() {
+    	if (window.Zepto) {
+      		init();
+      		clearInterval(nTimer);
+    	}
+  }, 25);
+  })();  
+</script>
+		<!--[if lte IE 8]>
+			<script type="text/javascript" src="https://betterexplained.com/wp-content/themes/Avada/assets/js/respond.js"></script>
+		<![endif]-->
+	
+
+
+<!-- Dynamic page generated in 0.231 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2020-08-17 22:25:26 -->
+
+<!-- super cache --><script type="text/javascript" id="">var clicky_site_ids=clicky_site_ids||[];clicky_site_ids.push(66459318);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//static.getclicky.com/js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)})();</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66459318ns.gif"></p></noscript><img src="./The-Quick-Guide-to-GUIDs_Website_files/saved_resource" alt="website
+statistics" style="border:none; display: none;" height="0" width="0"><script type="text/javascript" id="">/*
+ instant.page v1.0.0 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
+var urlToPreload,mouseoverTimer,lastTouchTimestamp,prefetcher=document.createElement("link"),isSupported=prefetcher.relList&&prefetcher.relList.supports&&prefetcher.relList.supports("prefetch"),allowQueryString="instantAllowQueryString"in document.body.dataset;
+if(isSupported){prefetcher.rel="prefetch";document.head.appendChild(prefetcher);var eventListenersOptions={capture:!0,passive:!0};document.addEventListener("touchstart",touchstartListener,eventListenersOptions);document.addEventListener("mouseover",mouseoverListener,eventListenersOptions)}
+function touchstartListener(a){lastTouchTimestamp=performance.now();(a=a.target.closest("a"))&&isPreloadable(a)&&(a.addEventListener("touchcancel",touchendAndTouchcancelListener,{passive:!0}),a.addEventListener("touchend",touchendAndTouchcancelListener,{passive:!0}),urlToPreload=a.href,preload(a.href))}function touchendAndTouchcancelListener(){urlToPreload=void 0;stopPreloading()}
+function mouseoverListener(a){if(!(1100>performance.now()-lastTouchTimestamp)){var b=a.target.closest("a");b&&isPreloadable(b)&&(b.addEventListener("mouseout",mouseoutListener,{passive:!0}),urlToPreload=b.href,mouseoverTimer=setTimeout(function(){preload(b.href);mouseoverTimer=void 0},65))}}function mouseoutListener(a){a.relatedTarget&&a.target.closest("a")==a.relatedTarget.closest("a")||(mouseoverTimer?(clearTimeout(mouseoverTimer),mouseoverTimer=void 0):(urlToPreload=void 0,stopPreloading()))}
+function isPreloadable(a){if(urlToPreload!=a.href){var b=new URL(a.href);if(b.origin==location.origin&&!(!allowQueryString&&b.search||b.pathname+b.search==location.pathname+location.search&&b.hash||"noInstant"in a.dataset))return!0}}function preload(a){prefetcher.href=a}function stopPreloading(){prefetcher.removeAttribute("href")};</script><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe src="./The-Quick-Guide-to-GUIDs_Website_files/anchor.html" width="256" height="60" role="presentation" name="a-ficrv7wixbd7" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./The-Quick-Guide-to-GUIDs_Website_files/saved_resource(1).html"></iframe></div><iframe style="display: none;" src="./The-Quick-Guide-to-GUIDs_Website_files/saved_resource(2).html"></iframe></body></html>

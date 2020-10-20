@@ -1,0 +1,42 @@
+Format:
+Resource Name - Author - Type - Information resource is useful for
+
+Resources:
+1.  Shelf filters for ambisonic decoders - Richard Lee - Document produced from various resources - Information about filters relevant to ambisonic decoders (assumes experience with digital signal processing)
+2.  Core sound tetramic website - N/A - Website for tetramic 1st order ambisonics microphone, website: https://www.core-sound.com/TetraMic/1.php Accessed: 23/08/2020 - Reference to B-Format encoding convention used by tetramic, VVencode - software required to convert A-Format recordings to B-Format and links to B-Format samples
+3.  General Metatheory of Auditory Localisation - Gerzon, Michael A - Paper - Provides mathematical framework for spatial localisation cues, general decoder design and implementation (considered one of original ambisonics papers, if not the original ambisonics paper)
+4.  Ambisonic Formats Explained - What Is The Difference Between A Format And B Format - Website:https://www.pro-tools-expert.com/production-expert-1/2019/12/10/ambeo-and-ambisonic-formats-a-bluffers-guide, Accessed: 24/08/2020 - Good explanation of A Format and B Format, also includes information on the two most common encoding conventions: ambix and fuma.
+5.  The Double Mid-Sides Array - N/A - Website: https://www.soundonsound.com/techniques/double-mid-sides-array, Accessed: 24/08/2020 - Useful to explain mid/side decoding to aid in the explanation of A Format to B Format conversion
+6.  A beginner's Introduction to microphone polar patterns - Website: https://ehomerecordingstudio.com/microphone-polar-patterns/#:~:text=Mic%202%20has%20a%20figure,and%20the%20rear%20is%20ignored., Accessed: 25/08/2020 - Good illustrations showing the links between various microphone polar patterrns which is useful in the explanation of mid-side sterephony
+7.  VR Audio — Differences between A Format and B Format - N/A - Website: https://postperspective.com/vr-audio-differences-format-b-format/, Accessed: 24/08/2020 - Good overview of the key points to understand the differences between A Format and B Format and, the different B Format encoding conventions.
+8.  Ambisonics - N/A - Website: https://en.wikipedia.org/wiki/Ambisonics#Theoretical_foundation, Accessed: 24/08/2020 - Good overview of key information to do with ambisonics
+9.  Is my Decoder Ambisonic? - Aaron J. Heller, Richard Lee, Eric M. Benjamin - Describes key design features/components required by a decoder to satisfy the criteria that characterises ambisonic reproduction
+10. Design and Implementation of filters for Ambisonic Decoders - Paper - Aaron J. Heller, Eric M.Benjamim - Provides greater detail in to the filters described in 'Is my Decoder Ambisonic?'; the filters neccessary for ambisonic reproduction
+11. Scientific Computing/Digital Signal Processing/Filters and their applications - Lectures - Prof. David Marshall (Cardiff University) - information regarding digital filters and their implementation, particularly in MATLAB
+12. The bilinear z transform - N/A - Website: http://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/, Accessed: 24/08/2020 - Description of how to do the bilinear transform including how to pre-warp the response
+13. Bilinear transform method of designing IIR filters - N/A - Website: https://technobyte.org/bilinear-transform-iir-filters-designing/, Accessed: 24/08/2020 - Theory behind bilinear transform and pre-warping.
+14. The Scientist and Engineer's Guide to Digital Signal Processing: The Laplace Transform - Steven W. Smith - Provides context to 's' and 'z' domains
+15. Why do digital filters work? -  Website: https://dsp.stackexchange.com/questions/31161/why-do-digital-filters-work, Accessed: 24/08/2020 - Describes the way in which digital filters work 
+16. A Toolkit for the Design of Ambisonic Decoders - A.J.Heller, Eric.M Benjamin, Richard Lee - Paper - Equations in appendix to calculate maximum average rE and per order gains used to match the loudness of the LF and HF sections
+17. Future Spatial Audio: Subjective evaluation of 3D surround systems - Paul James Power - Thesis - Good overview of entire ambisonic story in 'ambisonic encoding/decoding' section
+18. Spatial Sound Encoding Including Near Field Effect:Introducing Distance Coding Filters and a Viable, New Ambisonic Format - Jérôme Daniel - Paper - provides good mathematical formalism and equations for understanding how different normalisation schemes can be implemented as well as providing way of implementing near field correction in both the encoding and decoding stages
+19. Near Field filters for Higher Order Ambisonics - Fons Adriaensen - Paper - Gives further detail in to the procedure offered in 'Spatial Sound Encoding Including Near Field Effect:Introducing Distance Coding Filters and a Viable, New Ambisonic Format' as well as providing a correction to one of the equations used to define a filter for a particular order of ambisonics. Practical issues in regards to implementing the filters are also discussed.
+20. AMBIX - A SUGGESTED AMBISONICS FORMAT - Christian Nachbar, Franz Zotter, Etienne Deleflie, Alois Sontacchi - Paper - Information regarding the normalisation scheme and the channel ordering used by the ambisonic encoding convention and a brief section at the beginning linking the FuMa encoding convention to the .amb file extension
+21. A New Mixed Order Scheme For Ambisonic Signals - Chris Travis - Paper - Information about mixed order schemes for ambisonics, in particular, the new HV scheme which is commonly used with the ambix ambisonic format
+22. Introduction to Ambisonics - Daniel Artega - Paper - Good follow on to introducing ambisonics after wikipedia
+23. Getting Started with VVencode - David McGriffy - Guide - Guide to setting up and using software which should have come with Tetramic as can be seen in resource 2 and is used to convert from A Format to B Format
+24. The Quick Guide to GUIDS - N/A - Website: https://betterexplained.com/articles/the-quick-guide-to-guids/, Accessed:24/08/2020 - explains what GUID is as mentioned in 'Ambix - a suggested ambisonic format'
+25. The AMB Ambisonic File Format - Richard Dobson - Website: http://www.rwdobson.com/bformat.html, Accessed: 24/08/2020 - Details the AMB file format
+26. Représentation de champs acoustiques, application à la transmission et à la reproduction de scènes sonores complexes dans un contexte multimédia - Jerome Daniel - Thesis - Single best resource for ambisonic information with very good appendix, downside - in French
+27. Ambisonics A Practical 3D Audio Theory for Recording, Studio Production, Sound Reinforcement, and Virtual Reality - Franz Zotter, Matthias Frank - Book - Useful for giving insight in to development of ambisonics
+28. Ambisonic component ordering - N/A - Website: https://www.audiokinetic.com/library/edge/?source=Help&id=ambisonics_channel_ordering, Accessed: 24/08/2020 - Gives channel ordering schemes used in both the FuMa encoding convention and the AmbiX encoding convention
+29. The Digital All-Pass Filter: A Versatile Signal Processing Building Block - Phillip A. Regalia, Sanjit K. Mitra, P. P. Vaidyanathan - Insight in to the concept behind the filters used for the dual passband filters in 'Is my Decoder Ambisonic?'
+30. Read HRTF - Peter L. Søndergaard - Code: AMToolbox version 1.0.0 - Used to get idea of how to design function to read Kemar HRTF's into Matlab
+31. HRTF-Verilog-hrtfmodel.m - TPLeung - Code: hrtfmodel.m - Used as guide to produce function to apply kemar filters to speaker signals at various angular positions
+32. HRTF Measurements of a KEMAR Dummy-Head Microphone - Bill Gardner, Keith Martin - Paper - Paper behind the recording the hrtf's that are used to filter the speaker signals to produce a binaural recording
+33. Ambisonic Decoder Toolbox - Aaron J Heller - Code - Collection of MATLAB and GNU Octave functions for creating ambisonic decoders, main source of inspiration for source code, the functions found here have been modified to produce the functions used on this project
+34. Higher-Order-Ambisonic-encodeHOA-N3D.m - polarch (github name) - Code - Used as guide to create encoding process for producing test plots to validate ambisonic decoder meets ambisonic criteria
+
+
+
+

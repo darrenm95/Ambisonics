@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>The bilinear z transform | EarLevel Engineering</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./The-bilinear-z-transform_ Website_files/style.css">
+<link rel="pingback" href="http://www.earlevel.com/main/xmlrpc.php">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="EarLevel Engineering » Feed" href="https://www.earlevel.com/main/feed/">
+<link rel="alternate" type="application/rss+xml" title="EarLevel Engineering » Comments Feed" href="https://www.earlevel.com/main/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="EarLevel Engineering » The bilinear z transform Comments Feed" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.earlevel.com\/main\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.4"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./The-bilinear-z-transform_ Website_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./The-bilinear-z-transform_ Website_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="./The-bilinear-z-transform_ Website_files/theme.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="parent-style-css" href="./The-bilinear-z-transform_ Website_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="child-style-css" href="./The-bilinear-z-transform_ Website_files/style(2).css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyten-block-style-css" href="./The-bilinear-z-transform_ Website_files/blocks.css" type="text/css" media="all">
+<script type="text/javascript" src="./The-bilinear-z-transform_ Website_files/jquery.js.download"></script>
+<script type="text/javascript" src="./The-bilinear-z-transform_ Website_files/jquery-migrate.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.earlevel.com/main/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.earlevel.com/main/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.earlevel.com/main/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="The digital state variable filter" href="https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/">
+<link rel="next" title="Sampling in-depth" href="https://www.earlevel.com/main/2007/07/03/sampling-in-depth/">
+<link rel="canonical" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/">
+<link rel="shortlink" href="https://www.earlevel.com/main/?p=17">
+<link rel="alternate" type="application/json+oembed" href="https://www.earlevel.com/main/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.earlevel.com%2Fmain%2F2003%2F03%2F02%2Fthe-bilinear-z-transform%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.earlevel.com/main/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.earlevel.com%2Fmain%2F2003%2F03%2F02%2Fthe-bilinear-z-transform%2F&amp;format=xml">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//www.earlevel.com/main/?wordfence_lh=1&hid=EB1992AFC37314D4D554C81A6C465BD3');
+</script><script type="text/javascript" async="" src="./The-bilinear-z-transform_ Website_files/saved_resource"></script></head>
+
+<body class="post-template-default single single-post postid-17 single-format-standard">
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+								<div id="site-title">
+					<span>
+					<a href="https://www.earlevel.com/main" rel="home" title="EarLevel Engineering">
+					<img src="./The-bilinear-z-transform_ Website_files/EarLevel-logo.png" alt="EarLevel Engineering">
+					</a>
+					</span>
+				</div>
+				<div id="site-description">Practical digital audio signal processing</div>
+
+										<img src="./The-bilinear-z-transform_ Website_files/EarLevel-header.png" width="940" height="198" alt="">
+								</div><!-- #branding -->
+
+			<div id="access" role="navigation">
+			  				<div class="skip-link screen-reader-text"><a href="http://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#content" title="Skip to content">Skip to content</a></div>
+								<div class="menu-header"><ul id="menu-main" class="menu"><li id="menu-item-431" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-431"><a href="http://www.earlevel.com/main/">Home</a></li>
+<li id="menu-item-432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-432"><a href="https://www.earlevel.com/main/about/">About</a></li>
+<li id="menu-item-435" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-435"><a href="https://www.earlevel.com/main/category/widgets/">Widgets</a></li>
+</ul></div>			</div><!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+	<div id="main">
+
+		<div id="container">
+			<div id="content" role="main">
+
+			
+
+				<div id="nav-above" class="navigation">
+					<div class="nav-previous"><a href="https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/" rel="prev"><span class="meta-nav">←</span> The digital state variable filter</a></div>
+					<div class="nav-next"><a href="https://www.earlevel.com/main/2007/07/03/sampling-in-depth/" rel="next">Sampling in-depth <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-above -->
+
+				<div id="post-17" class="post-17 post type-post status-publish format-standard hentry category-digital-audio category-filters category-iir-filters">
+					<h1 class="entry-title">The bilinear z transform</h1>
+
+					<div class="entry-meta">
+						<span class="meta-prep meta-prep-author">Posted on</span> <a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/" title="9:00 pm" rel="bookmark"><span class="entry-date">March 2, 2003</span></a> <span class="meta-sep">by</span> <span class="author vcard"><a class="url fn n" href="https://www.earlevel.com/main/author/codehead/" title="View all posts by Nigel Redmon">Nigel Redmon</a></span>					</div><!-- .entry-meta -->
+
+					<div class="entry-content">
+						<p>The bilinear transform is the most popular method of converting analog filter prototypes in the s domain to the z domain so we can implement them as digital filters. The reason we are interested in these s domain filters is that analog filter theory has been around longer than digital filter theory, so we have available to us a number of popular and useful filters in the s domain. The standard biquads used heavily in audio processing are direct implementations from the s domain using the bilinear transform.</p>
+<p>The theory of the bilinear transform is well documented in DSP texts and on the web, so rather than spend time going into the theory, we’ll cut to the chase and show how to do the transform, using a second order lowpass filter as an example.</p>
+<p>The s domain transfer function of a second order lowpass filter is</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/BiquadSLp.gif" alt="" width="109" height="46" align="middle"></p></blockquote>
+<p>To move to the z domain, we need to substitute for s in terms of z. At the same time, we “pre-warp” the response using the tan function in order to wrap the infinite s plane onto the circular z plane. The combined substitution is</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearSDef.gif" alt="" width="366" height="35"></p></blockquote>
+<p>Here’s our z domain transfer function after substituting for s:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx1.gif" alt="" width="200" height="65"></p></blockquote>
+<p>In order to solve for our filter coefficients, we need to get the equation into the form of a second order polynomial in the numerator (the zeros) and another second order polynomial in the denominator (the poles). That is, we need it to look something like this:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/secondOrderXferFunc.gif" alt="" width="158" height="44"></p></blockquote>
+<p>It helps to use a math package to cut down on some of the tedious work. If we take the right side of the equation and ask MathCad to “simplify”, it gives</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx2.gif" alt="" width="412" height="34"></p></blockquote>
+<p>The first thing we see is that there are too many Q’s, so divide the top and bottom by Q, resulting in</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx3.gif" alt="" width="268" height="50"></p></blockquote>
+<p>Now combine terms in the numerator and rearrange in descending powers of z; do the same for the denominator:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx4.gif" alt="" width="275" height="51"></p></blockquote>
+<p>The z operator means delay, and its power tell us how many samples. Positive powers of z are in the future, and negative powers are in the past. Our filter can’t see into the future (we call such filters “non-causal”), so we need to reduce the powers of z to zero and below (to make it causal). To do this we multiply the numerator and denominator by&nbsp;<img src="./The-bilinear-z-transform_ Website_files/z-2.gif" alt="" width="15" height="12">, which subtracts two from each power of z, and gives us our final form:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx5.gif" alt="" width="339" height="51"></p></blockquote>
+<p>Our coefficients are now evident:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx6.gif" alt="" width="353" height="58"></p></blockquote>
+<p>Because the b0 coefficient is associated with y[n], the filter output, we divide everything by b0 to normalize the filter. Here we also note some convenient relationships between the “a” coefficients:</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/bilinearEx7.gif" alt="" width="371" height="106"></p></blockquote>
+<p>As a further efficiency, you can compute the common numerator term once and use it where needed. When calculating the coefficients, Q is the filter Q value (for a Butterworth lowpass, where the passband is flat with no corner peaking, use 0.7071, which is the reciprocal of the square root of two). Recall that we defined K as</p>
+<blockquote><p><img src="./The-bilinear-z-transform_ Website_files/biquadKdef.gif" alt="" width="80" height="30"></p></blockquote>
+<p>where Fc is the filter corner frequency you want, and Fs is the sample rate.</p>
+											</div><!-- .entry-content -->
+
+		
+						<div class="entry-utility">
+							This entry was posted in <a href="https://www.earlevel.com/main/category/digital-audio/" rel="category tag">Digital Audio</a>, <a href="https://www.earlevel.com/main/category/digital-audio/filters/" rel="category tag">Filters</a>, <a href="https://www.earlevel.com/main/category/digital-audio/filters/iir-filters/" rel="category tag">IIR Filters</a>. Bookmark the <a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/" title="Permalink to The bilinear z transform" rel="bookmark">permalink</a>.													</div><!-- .entry-utility -->
+					</div><!-- #post-17 -->
+
+					<div id="nav-below" class="navigation">
+						<div class="nav-previous"><a href="https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/" rel="prev"><span class="meta-nav">←</span> The digital state variable filter</a></div>
+						<div class="nav-next"><a href="https://www.earlevel.com/main/2007/07/03/sampling-in-depth/" rel="next">Sampling in-depth <span class="meta-nav">→</span></a></div>
+					</div><!-- #nav-below -->
+
+					
+			<div id="comments">
+
+
+			<h3 id="comments-title">
+			23 Responses to <em>The bilinear z transform</em>			</h3>
+
+	
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="li-comment-13542">
+		<div id="comment-13542">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/21b69cfbdaa53df465c539d44b34103a.jpeg" srcset="http://2.gravatar.com/avatar/21b69cfbdaa53df465c539d44b34103a?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Alex Irae</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-13542">
+				June 5, 2013 at 8:19 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Flawless explanation Nigel, excellent tutorials!</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=13542#respond" data-commentid="13542" data-postid="17" data-belowelement="comment-13542" data-respondelement="respond" aria-label="Reply to Alex Irae">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-18584">
+		<div id="comment-18584">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/8e8c2cbde951d9259493cdefa7f973dc.jpeg" srcset="http://2.gravatar.com/avatar/8e8c2cbde951d9259493cdefa7f973dc?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Robin Green</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-18584">
+				September 6, 2013 at 4:53 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>The clearest explanations of the process I have ever read! I now get that it’s kinda mechanical in Mathematica or Maple, yet requires human assistance to get right.</p>
+<p>Any advice on approaching polynomials where y[0] isn’t present? Do you timeshift the whole expression one sample and go from there or is there a different “correct thing” to do?</p>
+<p>Thanks in advance.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=18584#respond" data-commentid="18584" data-postid="17" data-belowelement="comment-18584" data-respondelement="respond" aria-label="Reply to Robin Green">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-2" id="li-comment-19469">
+		<div id="comment-19469">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-19469">
+				September 25, 2013 at 1:44 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Well, y[0] is the output, but yes, in general each additional increment in the index indicates another unit delay—so that if you skip from y[1] to y[3], there would be two unit delays.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=19469#respond" data-commentid="19469" data-postid="17" data-belowelement="comment-19469" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-35906">
+		<div id="comment-35906">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35906">
+				February 15, 2015 at 4:56 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Thanks for these very good explanations !<br>
+But I’m wondering about gain ? where is it in these equations ? implicit ?<br>
+I can’t figure out where it is…!</p>
+<p>Hope it’s not to late ! thank you</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35906#respond" data-commentid="35906" data-postid="17" data-belowelement="comment-35906" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-2" id="li-comment-35909">
+		<div id="comment-35909">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35909">
+				February 15, 2015 at 5:13 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>There is gain, but we normalize to unity gain by dividing all the factors by the output coefficient. So, the lowpass filter has unity gain in the passband, and only corner frequency and Q adjustment. Something like a peaking and shelving filters are a little different, with positive and negative gain for the peaking and shelf portions, and unity gain elsewhere.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35909#respond" data-commentid="35909" data-postid="17" data-belowelement="comment-35909" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment odd alt depth-3" id="li-comment-35926">
+		<div id="comment-35926">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35926">
+				February 16, 2015 at 2:04 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Okay, thanks. I understand for unity gain now. But, for instance, in the case of a peaking filter, how do you adjust the gain of the peak ?<br>
+Trying to understand that, I played with your calculator and noticed that only a0 and a2 change (I also noticed that a0 and a2 aren’t the same in the case of a peaking filter and that’s where I understood that your equation above is only for lowpass filter, isn’t it ?)<br>
+How can I reproduce your reasoning for the peaking filter ?</p>
+<p>To clarify, my goal is to convert the coefficient used in the direct form 1 equation to those of the direct form 2 equation (as the DF1 is used in Max/MSP and the DF2 in Pure Data, and I need to “import” curve from Max/MSP to Pure data).</p>
+<p>Tank you again !</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35926#respond" data-commentid="35926" data-postid="17" data-belowelement="comment-35926" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-codehead bypostauthor even thread-odd thread-alt depth-1" id="li-comment-35928">
+		<div id="comment-35928">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35928">
+				February 16, 2015 at 2:55 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>OK, first, you don’t need to convert coefficients for the different biquad direct forms. The different forms are simply transpositions. My C++ source uses transposed direct form II, which works well for floating point, but I’ve used the same in direct form I, which suits the 56k DSP family. So, if you want filters that behave the same as in my Biquad calculator v2, then you can use the equations given in the source code.</p>
+<p>Also, you noted that only a0 and a2 change for the peaking filter gain, but that’s only true for boost—cut requires a different arrangement to keep the response symmetrical (the poles are fixed and the zeros as moved for boost, zeros are fixed and poles are moves for cut).</p>
+<p>Basically, a peaking filter is a bandpass response added to the input. But if you simply mix a bandpass with the direct signal, you’ll have phase issues where they come together (because the IIR filter is not phase linear). So, you actually have to work it into the equation then do the bilinear transform on the whole thing.</p>
+<p>For instance, since we have the lowpass equation above, 1 / (s^2 + s/Q +1), I’ll use the example of a low shelf filter. It would be the lowpass, times a gain value (H, which is zero-based), plus the direct signal (1); Q is a complicated issue with shelving filters, so I’ll revert to Butterworth response, where 1/Q is sqrt(2): H / (s^2 + s*sqrt(2) +1) + 1. We put that into a common denominator: (H + (s^2 + s*sqrt(2) +1)) / (s^2 + s*sqrt(2) +1). We want unity gain to be a gain of 1, so we substitute V for H + 1, and end up with: (V + s^2 + s*sqrt(2)) / (s^2 + s*sqrt(2) +1). Now, you run that through the bilinear z transform, and that’s where you get the coefficient formulas. For the boost case anyway…</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35928#respond" data-commentid="35928" data-postid="17" data-belowelement="comment-35928" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-35941">
+		<div id="comment-35941">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35941">
+				February 16, 2015 at 9:16 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Wow, okay thanks a lot. I’m a bit lost in math (and english also!).</p>
+<p>So, you say that I don’t need to convert coefficients between DFI and DFII but, when I try to apply those of DFI (from max msp’s biquad~) to a biquad~ using DFII (the one of puredata), I can’t ear a sound. It should mean that the two biquads don’t use the coefficients the same way (and It’s normal since they are not based on the same equation). But there should be a way to convert (or transpose) the coefficients between one and the other…</p>
+<p>Your coefficients don’t work with puredata so It’s a pitty for me, I can’t use your sources…</p>
+<p>I’ll have to be creative to do what I want to do ! 🙂</p>
+<p>Thank you for your help anyway !</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35941#respond" data-commentid="35941" data-postid="17" data-belowelement="comment-35941" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-codehead bypostauthor even thread-odd thread-alt depth-1" id="li-comment-35949">
+		<div id="comment-35949">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35949">
+				February 16, 2015 at 12:46 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>One key gotcha is that while “a” and “b” coefficient naming is common, there is no convention on which one is the feedback (pole coefficients) and which are the feed-forward (zero coefficients). Try using the a2 coefficient for b2, etc. I use the convention that “a” is on top of the transfer function, the left side of a direct form I diagram, as do many other classic text books.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35949#respond" data-commentid="35949" data-postid="17" data-belowelement="comment-35949" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment odd alt depth-2" id="li-comment-35957">
+		<div id="comment-35957">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35957">
+				February 16, 2015 at 4:31 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Yes, I tried changing a for b, etc, but it still doesn’t work.<br>
+I think I’m going to calculate the coefficients, starting with frequency, gain and q. Now I’ve to find how…!</p>
+<p>I tried your calculator again and some type of filter seem to work (I can ear sound through a biquad objet) but not as expected (for instance a “selective” bandpass filter – with Q of 10 – doesn’t filter the audio a lot as it should). Very strange behavior…</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35957#respond" data-commentid="35957" data-postid="17" data-belowelement="comment-35957" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-3" id="li-comment-35958">
+		<div id="comment-35958">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35958">
+				February 16, 2015 at 4:50 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>I looked up the Max biquad~ object, if that’s what you are using:</p>
+<p>y[n] = a0 * x[n] + a1 * x[n-1] + a2 * x[n-2] – b1 * y[n-1] – b2 * y[n-2] </p>
+<p>This is precisely the convention that I use, so there should be no change needed.</p>
+<p>For a filter that’s not working right for you, give me one exact set of parameters for the calculator (v2), and the list of coefficients it produces. Describe the incorrect filter response that you are seeing as clearly as you can.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35958#respond" data-commentid="35958" data-postid="17" data-belowelement="comment-35958" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment odd alt depth-4" id="li-comment-35961">
+		<div id="comment-35961">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35961">
+				February 16, 2015 at 5:12 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Yes that’s what I thought. But my goal is to create a filter in max msp and to import it into pure data. My issue is in pure data because it uses these equations :</p>
+<p>y[n] = b0*w[n] + b1*w[n-1] + b2*w[n-2]<br>
+with :<br>
+w[n] = x[n] – a1*w[n-1] – a2*w[n-2]</p>
+<p>And I’m pretty sure that it’s not the same set of coefficients between those two (I tried to put them into pure data, to change a and b etc…)</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35961#respond" data-commentid="35961" data-postid="17" data-belowelement="comment-35961" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-codehead bypostauthor even thread-even depth-1" id="li-comment-35962">
+		<div id="comment-35962">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35962">
+				February 16, 2015 at 5:37 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>With those equations, a and b coefficients need to be swapped. However, if that still doesn’t work, it may be that the equations are misstated—another very common difference in implementations is whether the minus signs are rolled into the coefficients or not (some people like to use all additions). So after you swap a and b, and confirm that it still doesn’t work, flip the signs of the feedback coefficients. (If that doesn’t work, you can try other combinations, but the feedback coefficients are the usual issue.)</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35962#respond" data-commentid="35962" data-postid="17" data-belowelement="comment-35962" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-35978">
+		<div id="comment-35978">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/2c6a5cb4442ad63595f4559c6cbbeac0.png" srcset="http://2.gravatar.com/avatar/2c6a5cb4442ad63595f4559c6cbbeac0?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">corentoulf</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35978">
+				February 17, 2015 at 1:40 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>This is it !<br>
+So first, I had to invert a and b, then, to flip the signs of b1 and b2. In fact, Puredata equation is :<br>
+y[n] = b0*w[n] + b1*w[n-1] + b2*w[n-2]<br>
+with :<br>
+w[n] = x[n] + a1*w[n-1] + a2*w[n-2] (all additions, as you said. I made a mistake in my previous reply)</p>
+<p>Thank you very much !</p>
+<p>PS: May I post a link to this website to inform the Max/MSP community ? A post talks about this with no solutions, It could help.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35978#respond" data-commentid="35978" data-postid="17" data-belowelement="comment-35978" data-respondelement="respond" aria-label="Reply to corentoulf">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-codehead bypostauthor even thread-even depth-1" id="li-comment-35979">
+		<div id="comment-35979">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-35979">
+				February 17, 2015 at 1:54 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Yes, of course you can post a link! Glad you got the problem solved!</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=35979#respond" data-commentid="35979" data-postid="17" data-belowelement="comment-35979" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-49543">
+		<div id="comment-49543">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/6c92fa8957e5324e8af03ad0f8f3b144.png" srcset="http://0.gravatar.com/avatar/6c92fa8957e5324e8af03ad0f8f3b144?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Aida R</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-49543">
+				November 3, 2016 at 12:05 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Very good explanation! can it be used for a notch filter as well?</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=49543#respond" data-commentid="49543" data-postid="17" data-belowelement="comment-49543" data-respondelement="respond" aria-label="Reply to Aida R">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-2" id="li-comment-49544">
+		<div id="comment-49544">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-49544">
+				November 3, 2016 at 1:36 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Yes—I derived all the filters, including notch, in the <a href="http://www.earlevel.com/main/2013/10/13/biquad-calculator-v2/">biquad calculator</a> and <a href="http://www.earlevel.com/main/2012/11/26/biquad-c-source-code/">biquad source code</a>, exactly this way.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=49544#respond" data-commentid="49544" data-postid="17" data-belowelement="comment-49544" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-56839">
+		<div id="comment-56839">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/248daf176146f64be3509d28bab1cf40.png" srcset="http://2.gravatar.com/avatar/248daf176146f64be3509d28bab1cf40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">yong</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-56839">
+				July 27, 2017 at 7:13 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Hi Nigel,<br>
+I have a question: When doing the pre-warping and substitute s to Z at the same time , the K=tan(wT/2) , how does this tan(wT/2) came from ?<br>
+(My understanding is to pre-warp by Wc=2/T*tan(wc/2) first than substitute s to Z by s=2/T*(z-1)/(z+1) )</p>
+<p>thanks</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=56839#respond" data-commentid="56839" data-postid="17" data-belowelement="comment-56839" data-respondelement="respond" aria-label="Reply to yong">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-2" id="li-comment-56842">
+		<div id="comment-56842">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-56842">
+				July 27, 2017 at 10:18 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>This shows the derivation of the tan warping: <a href="https://en.wikipedia.org/wiki/Bilinear_transform#Frequency_warping" rel="nofollow ugc">https://en.wikipedia.org/wiki/Bilinear_transform#Frequency_warping</a></p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=56842#respond" data-commentid="56842" data-postid="17" data-belowelement="comment-56842" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment odd alt depth-3" id="li-comment-58219">
+		<div id="comment-58219">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/3f59b0410fdd57b5760b6a38f73c41a4.jpeg" srcset="http://0.gravatar.com/avatar/3f59b0410fdd57b5760b6a38f73c41a4?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn"><a href="http://www.casperbhansen.dk/" rel="external nofollow ugc" class="url">Casper B. Hansen</a></cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-58219">
+				October 1, 2017 at 12:24 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>I have to ask; how do you arrive at s = 1/tan(wT/2) ((z-1) / (z+1)). There are multiple sources that uses that particular formula for s, but neglects to explain how the omega in the numerator got lost? The wikipedia page you’re linking to states the formula for s with an omega in the numerator.</p>
+<p>So, why s = 1/tan(wT/2) ((z-1) / (z+1)) instead of s = w/tan(wT/2) ((z-1) / (z+1)) ?</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=58219#respond" data-commentid="58219" data-postid="17" data-belowelement="comment-58219" data-respondelement="respond" aria-label="Reply to Casper B. Hansen">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-4" id="li-comment-58245">
+		<div id="comment-58245">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-58245">
+				October 1, 2017 at 12:23 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Ah, too broad of a question for a quick comment. There are so many places to find the derivation of prewarping—I’d rather not get into looking at why a particular one was stated a certain way.</p>
+</div>
+
+				<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/?replytocom=58245#respond" data-commentid="58245" data-postid="17" data-belowelement="comment-58245" data-respondelement="respond" aria-label="Reply to Nigel Redmon">Reply</a>				</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				<ul class="children">
+		<li class="comment odd alt depth-5" id="li-comment-58303">
+		<div id="comment-58303">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/3f59b0410fdd57b5760b6a38f73c41a4.jpeg" srcset="http://0.gravatar.com/avatar/3f59b0410fdd57b5760b6a38f73c41a4?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn"><a href="http://www.casperbhansen.dk/" rel="external nofollow ugc" class="url">Casper B. Hansen</a></cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-58303">
+				October 2, 2017 at 11:39 pm					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Darn — most articles will simply state it, and neglect the derivation, leaving the reader wondering how the …. it got to be 1 instead of w, or vice versa.</p>
+</div>
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-codehead bypostauthor even depth-5" id="li-comment-58305">
+		<div id="comment-58305">
+			<div class="comment-author vcard">
+				<img alt="" src="./The-bilinear-z-transform_ Website_files/eac3fa758886f87242004fc60f9a6d40.png" srcset="http://2.gravatar.com/avatar/eac3fa758886f87242004fc60f9a6d40?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">				<cite class="fn">Nigel Redmon</cite> <span class="says">says:</span>			</div><!-- .comment-author .vcard -->
+				
+			<div class="comment-meta commentmetadata"><a href="https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#comment-58305">
+				October 3, 2017 at 1:03 am					</a>
+									</div><!-- .comment-meta .commentmetadata -->
+
+				<div class="comment-body"><p>Where else? I’m not sure what they are even getting at on wikipedia formula, as s would be in radians per second in that case, so it seems like a mistake. Anyway, there are different conventions—some would say that you scale s by dividing by 2/T * tan(ωT/2), then substitute 2/T * (z-1)/(z+1) for s. In that case, 2/T cancels, and it reduces to the same substitution I gave. So, either take my word for it, or someone else’s, or understand why you’re substituting (z-1)/(z+1) as a mapping approximation and scaling with tangent, and follow through with the logic. It you trust that derivation, it’s probably a mistake to spend much time trying to figure out why an isolated formula doesn’t fit to the scheme you’re trying to use.</p>
+</div>
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</div><!-- #comment-##  -->
+
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+			</ol>
+
+	
+	
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/#respond" style="display:none;">Cancel reply</a></small></h3><form action="http://www.earlevel.com/main/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="17" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d78de0e430"></p><p style="display: none;"></p><input type="hidden" id="ak_js" name="ak_js" value="1598281168018"></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+	
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area" role="complementary">
+			<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://www.earlevel.com/main/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></li>		<li id="recent-posts-2" class="widget-container widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://www.earlevel.com/main/2020/01/04/further-thoughts-on-wave-table-oscillators/">Further thoughts on wave table oscillators</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2019/04/30/waveutils-updated/">WaveUtils updated</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2019/04/28/wavetableosc-optimized/">WaveTableOsc optimized</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2019/04/26/how-i-write-code/">How I write code</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2019/04/19/floating-point-denormals/">Floating point denormals</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2019/04/19/floating-point-caveats/">Floating point caveats</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2018/09/22/wavetable-signal-to-noise-ratio/">Wavetable signal to noise ratio</a>
+									</li>
+											<li>
+					<a href="https://www.earlevel.com/main/2018/09/21/sampling-theory-the-best-explanation-youve-ever-heard-end-notes/">Sampling theory, the best explanation you’ve ever heard—End notes</a>
+									</li>
+					</ul>
+		</li><li id="archives-2" class="widget-container widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+				<li><a href="https://www.earlevel.com/main/2020/01/">January 2020</a></li>
+	<li><a href="https://www.earlevel.com/main/2019/04/">April 2019</a></li>
+	<li><a href="https://www.earlevel.com/main/2018/09/">September 2018</a></li>
+	<li><a href="https://www.earlevel.com/main/2017/08/">August 2017</a></li>
+	<li><a href="https://www.earlevel.com/main/2017/05/">May 2017</a></li>
+	<li><a href="https://www.earlevel.com/main/2017/01/">January 2017</a></li>
+	<li><a href="https://www.earlevel.com/main/2016/12/">December 2016</a></li>
+	<li><a href="https://www.earlevel.com/main/2016/09/">September 2016</a></li>
+	<li><a href="https://www.earlevel.com/main/2016/02/">February 2016</a></li>
+	<li><a href="https://www.earlevel.com/main/2015/09/">September 2015</a></li>
+	<li><a href="https://www.earlevel.com/main/2015/01/">January 2015</a></li>
+	<li><a href="https://www.earlevel.com/main/2014/03/">March 2014</a></li>
+	<li><a href="https://www.earlevel.com/main/2014/01/">January 2014</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/10/">October 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/06/">June 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/05/">May 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/04/">April 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/03/">March 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2013/02/">February 2013</a></li>
+	<li><a href="https://www.earlevel.com/main/2012/12/">December 2012</a></li>
+	<li><a href="https://www.earlevel.com/main/2012/11/">November 2012</a></li>
+	<li><a href="https://www.earlevel.com/main/2012/05/">May 2012</a></li>
+	<li><a href="https://www.earlevel.com/main/2012/03/">March 2012</a></li>
+	<li><a href="https://www.earlevel.com/main/2011/01/">January 2011</a></li>
+	<li><a href="https://www.earlevel.com/main/2010/12/">December 2010</a></li>
+	<li><a href="https://www.earlevel.com/main/2010/11/">November 2010</a></li>
+	<li><a href="https://www.earlevel.com/main/2007/07/">July 2007</a></li>
+	<li><a href="https://www.earlevel.com/main/2003/03/">March 2003</a></li>
+	<li><a href="https://www.earlevel.com/main/2003/02/">February 2003</a></li>
+	<li><a href="https://www.earlevel.com/main/2002/08/">August 2002</a></li>
+	<li><a href="https://www.earlevel.com/main/1997/01/">January 1997</a></li>
+	<li><a href="https://www.earlevel.com/main/1996/11/">November 1996</a></li>
+	<li><a href="https://www.earlevel.com/main/1996/10/">October 1996</a></li>
+	<li><a href="https://www.earlevel.com/main/1996/08/">August 1996</a></li>
+	<li><a href="https://www.earlevel.com/main/1996/07/">July 1996</a></li>
+		</ul>
+			</li><li id="categories-2" class="widget-container widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+				<li class="cat-item cat-item-4"><a href="https://www.earlevel.com/main/category/digital-audio/">Digital Audio</a> (59)
+<ul class="children">
+	<li class="cat-item cat-item-11"><a href="https://www.earlevel.com/main/category/digital-audio/aliasing/">Aliasing</a> (9)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://www.earlevel.com/main/category/digital-audio/convolution/">Convolution</a> (3)
+</li>
+	<li class="cat-item cat-item-5"><a href="https://www.earlevel.com/main/category/digital-audio/dither-digital-audio/">Dither</a> (7)
+</li>
+	<li class="cat-item cat-item-8"><a href="https://www.earlevel.com/main/category/digital-audio/filters/">Filters</a> (23)
+	<ul class="children">
+	<li class="cat-item cat-item-22"><a href="https://www.earlevel.com/main/category/digital-audio/filters/dc-blocker/">DC Blocker</a> (1)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://www.earlevel.com/main/category/digital-audio/filters/fir-filters/">FIR Filters</a> (7)
+</li>
+	<li class="cat-item cat-item-9"><a href="https://www.earlevel.com/main/category/digital-audio/filters/iir-filters/">IIR Filters</a> (17)
+		<ul class="children">
+	<li class="cat-item cat-item-21"><a href="https://www.earlevel.com/main/category/digital-audio/filters/iir-filters/biquads/">Biquads</a> (11)
+</li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://www.earlevel.com/main/category/digital-audio/fourier/">Fourier</a> (3)
+	<ul class="children">
+	<li class="cat-item cat-item-17"><a href="https://www.earlevel.com/main/category/digital-audio/fourier/fft/">FFT</a> (3)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://www.earlevel.com/main/category/digital-audio/impulse-response/">Impulse Response</a> (5)
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.earlevel.com/main/category/digital-audio/jitter/">Jitter</a> (2)
+</li>
+	<li class="cat-item cat-item-20"><a href="https://www.earlevel.com/main/category/digital-audio/oscillators/">Oscillators</a> (12)
+	<ul class="children">
+	<li class="cat-item cat-item-24"><a href="https://www.earlevel.com/main/category/digital-audio/oscillators/wavetable-oscillators/">Wavetable Oscillators</a> (12)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://www.earlevel.com/main/category/digital-audio/phase/">Phase</a> (2)
+</li>
+	<li class="cat-item cat-item-13"><a href="https://www.earlevel.com/main/category/digital-audio/reverb/">Reverb</a> (2)
+</li>
+	<li class="cat-item cat-item-6"><a href="https://www.earlevel.com/main/category/digital-audio/sample-rate-conversion/">Sample Rate Conversion</a> (10)
+</li>
+	<li class="cat-item cat-item-7"><a href="https://www.earlevel.com/main/category/digital-audio/sampling-theory/">Sampling Theory</a> (6)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://www.earlevel.com/main/category/effects/">Effects</a> (1)
+<ul class="children">
+	<li class="cat-item cat-item-35"><a href="https://www.earlevel.com/main/category/effects/guitar-amp-simulation/">Guitar Amp Simulation</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-25"><a href="https://www.earlevel.com/main/category/envelope-generators/">Envelope Generators</a> (5)
+</li>
+	<li class="cat-item cat-item-38"><a href="https://www.earlevel.com/main/category/math/">Math</a> (2)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://www.earlevel.com/main/category/midi/">MIDI</a> (2)
+</li>
+	<li class="cat-item cat-item-26"><a href="https://www.earlevel.com/main/category/source-code/">Source Code</a> (10)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://www.earlevel.com/main/category/synthesizers/">Synthesizers</a> (9)
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.earlevel.com/main/category/uncategorized/">Uncategorized</a> (5)
+</li>
+	<li class="cat-item cat-item-29"><a href="https://www.earlevel.com/main/category/video/">Video</a> (4)
+</li>
+	<li class="cat-item cat-item-30"><a href="https://www.earlevel.com/main/category/widgets/">Widgets</a> (12)
+</li>
+		</ul>
+			</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+	</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
+		<div id="colophon">
+
+
+
+			<div id="site-info">
+				<a href="https://www.earlevel.com/main/" title="EarLevel Engineering" rel="home">
+					EarLevel Engineering				</a>
+			</div><!-- #site-info -->
+
+			<div id="site-generator">
+							</div><!-- #site-generator -->
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+<script type="text/javascript" src="./The-bilinear-z-transform_ Website_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./The-bilinear-z-transform_ Website_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./The-bilinear-z-transform_ Website_files/form.js.download"></script>
+
+
+</body></html>

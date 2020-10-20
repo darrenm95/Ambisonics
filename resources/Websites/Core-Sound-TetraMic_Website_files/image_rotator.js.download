@@ -1,0 +1,47 @@
+	//set the following two variables to taste
+
+	var cycles_to_run = 3
+	var delay_in_seconds = 3 //initial delay. Is cut in half each successive cycle
+	
+	var thisAd = 0           // don't touch this
+	var cycles_run = 0       //don't touch this
+	adImages = new Array(
+		//make sure all lines end with a comma except the last
+		"/images/banner1_middle_rock-concert.gif",
+		"/images/banner1_middle_csbm.gif",
+		"/images/banner1_middle_orchestra.gif",
+		"/images/banner1_middle_jecklin_disc.gif",
+		"/images/guitar315x100_bw.jpg",
+		"/images/banner1_middle_dpa-ortf.gif",
+		"/images/pda_with_pdaudio-cf.gif",
+		"/images/mic2496.gif"
+		)
+	adURL = new Array(
+		"/default.php",
+		"/mics/1.php",
+		"/bk/1.php",
+		"/jecklin/1.php",
+		"/dpa4003/1.php",
+		"/dpa4003/1.php",
+		"/pdaudio-cf/1.php",
+		"/Mic2496/1.php"
+		)
+	imgCt = adImages.length
+	function rotate() {
+		if (document.images && cycles_run < cycles_to_run) {
+			if (document.adBanner.complete) {
+				thisAd++
+				if (thisAd == imgCt) {
+					thisAd = 0
+					cycles_run++
+					delay_in_seconds = delay_in_seconds/2
+				}
+				document.adBanner.src=adImages[thisAd]
+			}
+			setTimeout("rotate()", delay_in_seconds * 1000)
+		}
+	}
+	
+	function newLocation() {
+		document.location.href = adURL[thisAd]
+	}
